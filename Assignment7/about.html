@@ -1,0 +1,189 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="web Assignment1" />
+    <meta name="keywords" content="HTML, CSS, JavaScript" />
+    <meta name="author" content="Lam_Kim_Quan" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+    <title>About</title>
+
+    <!-- take out stylesheet from style.css file -->
+    <link href="css/Style.css" rel="stylesheet" />
+    <style>
+        #imgAirline
+        {
+            height:500px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <img src="images/airplane_1.png" height="70" width="70" style="position:absolute; margin:0px 0px 0px 540px;" />
+        <b>Welcome To Airline Company Website</b>
+        <img src="images/airplane_2.png" height="70" width="70" style="position:absolute; margin:0px 0px 0px 1020px;" />
+    </header>
+    <br /><br /><br /><br />
+    <!--Breadcrumb [Indicate current page’s location]-->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb justify-content-center">
+            <li class="breadcrumb-item"><a href="svg_Task1.html">Task 1</a></li>
+            <li class="breadcrumb-item active" aria-current="page">About</li>
+            <li class="breadcrumb-item"><a href="contact.html">Contact</a></li>
+            <li class="breadcrumb-item"><a href="index.html">Index</a></li>
+        </ol>
+    </nav>
+
+    <!--Tab [using .nav-tabs class to generate a tabbed interface]-->
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#about" role="tab" aria-controls="about">Profile</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="contact-tab" data-toggle="tab" role="tab" href="#contact" aria-controls="contact">Leadership Team</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="index-tab" data-toggle="tab" role="tab" href="#index" aria-controls="index">Contact Us</a>
+        </li>
+    </ul>
+    <div style="background-color:lightgoldenrodyellow; height:300px;width:100%;">
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="about" role="tabpanel" aria-labelledby="about-tab">
+                The AirAsia Group is a multi-national airline group headquartered in Kuala Lumpur, Malaysia.
+                Originally founded in 1993, the group now operates a network of low-cost carrier's including
+                AirAsia, AirAsia India, Philippines AirAsia, Indonesia AirAsia and Thai AirAsia.<br /><br />
+                <b>AirAsia Group members include:</b>
+                <ul>
+                    <li>AirAsia (Dec-2001)</li>
+                    <li>Thai AirAsia (Feb-2004)</li>
+                    <li>AirAsia India (Jun-2014)</li>
+                    <li>AirAsia Sri Lanka (unspecified)</li>
+                    <li>AirAsia Japan (launched on 29-Oct-2017; Ceased operations in Oct-2020)</li>
+                </ul>
+            </div>
+            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="profile-tab">
+                <h1>Chairman's Message</h1><br />
+                CAPA – Centre for Aviation launched in 1990, with a mission to make a strategic difference
+                in aviation knowledge, delivered with the highest levels of intellectual integrity. This has
+                been our guiding force since 1990, during which time we have grown from a small team in Sydney
+                to more than 100 people located around the world in Australia, New Zealand, Singapore, Hong Kong,
+                India, the United Kingdom and the United States.We are proud to have been ahead of the curve in
+                predicting critical defining phenomena and trends that have impacted our industry, including low cost
+                airlines and airports; airport privatisation; the rise of China, India and the Middle East; the
+                disruptive impact of technology and big data; and the evolution of regulation and how the industry
+                innovates in response.
+            </div>
+            <div class="tab-pane fade" id="index" role="tabpanel" aria-labelledby="contact-tab">
+                <h1>Contact Us</h1><br />
+                <b>Address:</b> Level 11
+                70 Phillip Street
+                Sydney NSW 2000<br />
+                <b>AUSTRALIA</b><br />
+                T: +61 2 9241 3200<br />
+                F: +61 2 9241 3400
+            </div>
+        </div>
+    </div>
+
+    <br />
+    <!--indicators to the carousel slide-->
+    <div id="carouselPrev_Next" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-slide-to="0" class="active"></li>
+            <li data-slide-to="1"></li>
+            <li data-slide-to="2"></li>
+            <li data-slide-to="3"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="d-block w-100" id="imgAirline" src="images/airline3.png">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" id="imgAirline" src="images/airline1.jpg">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" id="imgAirline" src="images/airline2.jpg">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" id="imgAirline" src="images/airline4.jpg">
+            </div>
+        </div>
+
+        <!-- .control-prev for previous button-->
+        <a class="carousel-control-prev" href="#carouselPrev_Next" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+
+        <!-- .control-next for next button-->
+        <a class="carousel-control-next" href="#carouselPrev_Next" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+    <br />
+    <!--dropdown menu within .dropdown [can be traggred for <a> or <button>]-->
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle float-right" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <b>Searching</b>
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#about">About Aline</a><br />
+            <a class="dropdown-item" href="#food">Food Airline</a><br />
+            <a class="dropdown-item" href="#flight">Flight Deals</a>
+        </div>
+    </div>
+    <br /><br />
+    <section id="about">
+        <article class="BackScreen">
+            <br /><br />
+
+            <!--collapse button with show and hide element via class-->
+            <div class="border border-light">
+                <div class="text-center">
+                    <a class="btn btn-info" data-toggle="collapse" href="#collapseFlightInfo" role="button" aria-expanded="true">
+                        <h3>About us</h3>
+                    </a>
+                </div>
+            </div>
+            <!-- creating external link-->
+            <div class="collapse" id="collapseFlightInfo">
+                <div class="card card-body">
+                    <b id="about">
+                        Malaysia Aviation Group (MAG) is a global aviation organisation with subsidiaries and equity investments
+                        organised into four distinct business segments: Air Transportation Services, Ground Services, Aircraft Leasing
+                        and Talent Development. This group structure was created to drive better transparency and focused
+                        management across the respective operating subsidiaries, creating profit centre subsidiaries of the
+                        company’s separate businesses.  This ensures profit and loss accountability and unlocks the value of the
+                        various assets by driving new levels of operational efficiency. <a href="https://www.malaysiaairlines.com/my/en/about-us.html" class="alert-link">Learn More.</a>
+                    </b>
+                </div>
+            </div>
+        </article>
+    </section>
+
+    <!--Animated stripes-->
+    <div class="text-center">
+        <div class="progress center-block" style="width:1518px;">
+            <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: 40%;">
+                <span>
+                    40%
+                </span>
+            </div>
+        </div>
+    </div>
+    <br /><br />
+    <footer>
+        &copy; Lam_Kim_Quan 2020 Assignment 1
+    </footer>
+
+</body>
+</html>

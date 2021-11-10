@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>SVG Task1</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <br /><br /><br />
+    <!--Breadcrumb [Indicate current page’s location]-->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb justify-content-center">
+            <li class="breadcrumb-item active" aria-current="page">Task 1</li>
+            <li class="breadcrumb-item"><a href="about.html">About</a></li>
+            <li class="breadcrumb-item"><a href="contact.html">Contact</a></li>
+            <li class="breadcrumb-item"><a href="index.html">Index</a></li>
+        </ol>
+    </nav>
+    <br />
+    <h2>Ship: </h2>
+    <!-- Svg rectangle, circle, path -->
+    <svg height="500" width="512" version="1.1" viewBox="0 0 512 400">
+        <rect style="opacity:0.25;fill:#afe9dd" id="rect4333" width="600" height="562" x="0" y="-50" />
+
+        <path style="fill:#808080"
+              d="m219 62.421-10 14.51h14.5s2.1837.40138 3 1.197c.66303.81926.59848 3.1047.59848 3.1047v87.239h14.998v-91.541s-.25236-4.5302-.80303-7.3128c-.24664-1.2463-.73929-2.4722-1.4517-3.5241-.66411-.98062-1.4509-2.0305-2.5483-2.4759-3.397-1.3785-10.195-1.197-10.195-1.197z"
+              fill="#502d16" />
+        <path style="fill:#d40000" d="m 116,168 279,0 -41.751,101 -205,0 z" />
+
+        <rect height="51" width="104" y="117" x="242" fill="silver" />
+        <!-- Window 1 -->
+        <circle fill="#55ddff" stroke="#502d16" stroke-width="4" cy="143" cx="261" r="10" />
+        <!-- window 2 -->
+        <circle fill="#55ddff" stroke="#502d16" stroke-width="4" cy="143" cx="295" r="10" />
+        <!-- window 3 -->
+        <circle fill="#55ddff" stroke="#502d16" stroke-width="4" cy="143" cx="328" r="10" />
+
+        <!-- boat rooftop -->
+        <rect style="fill:#d40000" height="10" width="122" y="107" x="233" fill="#c87137" />
+
+        <path id="sea01"
+              d="m 44,212 c 26,0 62,24 75,20 12.5,-3.3333 49.126,-20 75,-20 25.874,0 49.126,20 75,20 25.874,0 49.126,-20 75,-20 25.874,0 49.126,20 75,20 25.874,0 49.126,-20 75,-20 25.874,0 62.5,16.667 75,20 12.5,3.3333 50.55936,-20 75,-20 79.29889,60.92361 0,300 0,300 l -600,0 c 0,0 0,-216.63158 0,-300 z"
+              style="fill:#0066ff" />
+        <path id="sea02"
+              d="m 556,212 c 23.85888,-0.50164 62.5,23.333 75,20 12.5,-3.3333 49.126,-20 75,-20 25.874,0 49.126,20 75,20 25.874,0 49.126,-20 75,-20 25.874,0 49.126,20 75,20 25.874,0 49.126,-20 75,-20 25.874,0 62.5,16.667 75,20 12.5,3.3333 43.6416,-20 75,-20 l 0,300 -630,0 c 0,0 -27.05648,-284.71176 30,-300 z"
+              style="fill:#0066ff" />
+
+        <h2>Rotate Text:</h2>
+        <!--svg rotate text [text Path]-->
+    </svg>
+    <svg width="500" height="300">
+        <!--defs is use to embed definitions that can use in the svg elements or image-->
+        <defs>
+            <path id="TextShip1" d="M220,60 a1,0 0 0,0 90,0" />
+        </defs>
+
+        <defs>
+            <path id="TextShip2" d="M300,60 a1,0 0 0,0 90,0" />
+        </defs>
+
+        <defs>
+            <path id="TextShip3" d="M190,110 a1,1.1 0 0,0 180,0" />
+        </defs>
+
+        <text x="0" y="100" style="stroke: blue; font-size:20px;">
+
+            <textPath xlink:href="#TextShip1">
+                SVG
+            </textPath>
+
+            <textPath xlink:href="#TextShip2">
+                Task1
+            </textPath>
+
+            <textPath xlink:href="#TextShip3">
+                This is my Ship flot on top of Water
+            </textPath>
+        </text>
+
+    </svg>
+
+    <h2>Rainbow: </h2>
+    <!--ellipse [does not have equal to hight or width, but it has radius with x and y directions]-->
+    <svg height="350" width="600">
+        <ellipse cx="300" cy="100" rx="300" ry="100" style="fill:red;" />
+        <ellipse cx="300" cy="100" rx="280" ry="80" style="fill:orange;" />
+        <ellipse cx="300" cy="100" rx="260" ry="60" style="fill:yellow" />
+        <ellipse cx="300" cy="100" rx="240" ry="40" style="fill:green" />
+        <ellipse cx="300" cy="100" rx="220" ry="20" style="fill:blue" />
+        <ellipse cx="300" cy="100" rx="200" ry="0" style="fill:indigo" />
+        <ellipse cx="300" cy="100" rx="180" ry="-20" style="fill:violet" />
+    </svg>
+
+    <h2>Offset of image blurred : </h2>
+    <!-- offset if image blurred-->
+    <svg height="500" width="500">
+        <defs>
+            <filter id="blurImg" x="0" y="0" width="400" height="400">
+                <feOffset result="offOut" in="SourceGraphic" dx="40" dy="40" />
+                <feGaussianBlur result="blurOut" in="offOut" stdDeviation="40" />
+                <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+            </filter>
+        </defs>
+        <rect width="200" height="200" stroke="purple" stroke-width="5" fill="skyblue" filter="url(#blurImg)" />
+    </svg>
+
+</body>
+</html>
