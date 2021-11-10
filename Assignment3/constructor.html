@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Constructor</title>
+
+    <!-- take out stylesheet from style.css file -->
+    <link href="css/Style.css" rel="stylesheet" />
+    <style>
+        /*create container for booking flight detail to display the informatino*/
+        .containerConst {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            background-image: linear-gradient(white,#99ddff);
+            width: 1000px;
+            height: 600px;
+        }
+        /*create output to display at right side position*/
+        .outputDisplay {
+            position: absolute;
+            top: 21%;
+            right:18%;
+            font-size: 20px;
+            font-family: 'Bell MT';
+        }
+    </style>
+</head>
+<body>
+    <nav class="Content">
+        <a href="index.html">Index</a>&emsp;
+        <a href="Gallery.html">Gallery</a>&emsp;
+        <a href="constructor.html">Constructor</a>
+    </nav><br />
+    <!-- Display flight booking detail area -->
+    <div class="containerConst">
+    <h1 style="text-align:center;">Flight Booking Detail</h1>
+        <span style="font-size:20px; font-family:'Bell MT';" id="display" ></span>
+        <span class="outputDisplay" id="output"></span>
+    </div><br />
+    <script>
+        //object constructor and function (Flight Booking Detail)
+        //create object constructor for depart&arrival location,date, time, flight number, ticket price, total adult, total children, total infant
+        function FlightBookingDetail(getDepartLocation, getDate, getTime, getFlightNumber, getTicketPrice, getTotalAdult, getTotalChildren, getTotalInfant)
+        {
+            this.depart = getDepartLocation;
+            this.date = getDate;
+            this.time = getTime;
+            this.filghtNum = getFlightNumber;
+            this.ticketPrice = getTicketPrice;
+            this.totalAdult = getTotalAdult;
+            this.totalChildren = getTotalChildren;
+            this.totalInfant = getTotalInfant;
+        }
+        //create object constructor and include example for paris and hongking
+        var ParisDetail = new FlightBookingDetail("Paris","03-10-2020","3:30pm",1,2000,15,20,25);
+        var HonkongDetail = new FlightBookingDetail("Hongkong", "20-10-2020", "4:00am", 2, 3000, 20, 17, 19);
+
+       //add new property to all flight booking object 
+        FlightBookingDetail.prototype.origin = "Kuala Lumpur";
+
+         //add new property to object 'hongkong'
+        HonkongDetail.origin = "Penang";
+
+        //Paris Detail
+        //culculating very total price for adult, children, and infant
+        ParisDetail.totalTicketPrice = function ()
+        {
+            return "<br/><b>Paris Total Ticket Price Detail</b>" + "<br/>Total Ticket Price Adult:RM " + (this.totalAdult * this.ticketPrice) + "<br/>Total Ticket Price Children:RM "
+                + ((this.totalChildren * this.ticketPrice) * 0.8) + "<br/>Total Ticket Price Infant:RM " + ((this.totalInfant * this.ticketPrice) * 0.5)
+                + "<br/>Total Price Overall:RM " + ((this.totalAdult * this.ticketPrice) + ((this.totalChildren * this.ticketPrice) * 0.8) + ((this.totalInfant * this.ticketPrice) * 0.5));
+        }
+         // Display depart & arrival location along with the date [Paris]
+        ParisDetail.depart_date = function ()
+        {
+            return "Depart & Arrival Location is " + this.depart + " and the depart date is " + this.date;
+        }
+
+        //Hongking Detail
+        //culculating very total price for adult, children, and infant
+        HonkongDetail.totalTicketPrice = function ()
+        {
+            return "<br/><b>HongKong Total Ticket Price Detail</b>" + "<br/>Total Ticket Price Adult:RM " + (this.totalAdult * this.ticketPrice) + "<br/>Total Ticket Price Children:RM "
+                + ((this.totalChildren * this.ticketPrice) * 0.8) + "<br/>Total Ticket Price Infant:RM " + ((this.totalInfant * this.ticketPrice) * 0.5)
+                + "<br/>Total Price Overall:RM " + ((this.totalAdult * this.ticketPrice) + ((this.totalChildren * this.ticketPrice) * 0.8) + ((this.totalInfant * this.ticketPrice) * 0.5));
+        }
+
+        // Display depart & arrival location along with the date [Hongkong]
+        HonkongDetail.depart_date = function ()
+        {
+            return "Depart & Arrival Location is " + this.depart + " and the depart date is " + this.date;
+        }
+
+        //create empty array to store the data of paris and hongkong detail
+        var DisplyDetail = [];
+        var detail = "";
+        var i;
+        DisplyDetail.push(ParisDetail);
+        DisplyDetail.push(HonkongDetail);
+        
+        //create for loop to display together with paris and Hongkong detail
+        for ( i = 0; i < DisplyDetail.length; i++)
+        {
+            detail += "<br/>Origin: " + DisplyDetail[i].origin + "<br/>Depart and Arrival Location: " + DisplyDetail[i].depart + "<br/>Date: " + DisplyDetail[i].date + "<br/>Time: " + DisplyDetail[i].time
+                + "<br/>Flight Number: " + DisplyDetail[i].filghtNum + "<br/>Flight Ticket Price:RM " + DisplyDetail[i].ticketPrice
+                + "<br/>Total Adult: " + DisplyDetail[i].totalAdult + "<br/>Total Children: " + DisplyDetail[i].totalChildren + "<br/>Total Infant: "
+                + DisplyDetail[i].totalInfant + "<br/>";
+        }
+
+        //display output
+        document.getElementById("display").innerHTML = detail;
+        document.getElementById("output").innerHTML = ParisDetail.totalTicketPrice() + "<br/>" + ParisDetail.depart_date() + "<br/><br/><br/><br/>"
+            + HonkongDetail.totalTicketPrice() + "<br/>" + HonkongDetail.depart_date();
+    </script>
+    <footer>
+        &copy; Lam_Kim_Quan 2020 Assignment 3
+    </footer>
+</body>
+</html>

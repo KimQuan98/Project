@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Gallery</title>
+
+    <link href="css/Style.css" rel="stylesheet" />
+    <style>
+        .containerImage {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: white;
+            width: 723px;
+            height: 160px;
+        }
+
+        .containerText {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: ghostwhite;
+            width: 723px;
+            height: 40px;
+            font-size: 23px;
+            text-align: center;
+            font-family: 'Bodoni MT';
+        }
+
+        .containerDisplayImage {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: white;
+            width: 723px;
+            height: 400px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <nav class="Content">
+        <a href="index.html">Index</a>&emsp;
+        <a href="Gallery.html">Gallery</a>&emsp;
+        <a href="constructor.html">Constructor</a>
+    </nav><br />
+    <h1 style="text-align:center;">Gallery Page</h1>
+    <!-- 4 image with alt text -->
+    <section class="containerImage">
+        &emsp;<img src="images/gallery1.jpg" id="imgs" alt="Airasia Premium Seat" width="170" height="150" />
+        <img src="images/gallery2.jpg" id="imgs" alt="Airasia Office" width="170" height="150">
+        <img src="images/gallery3.jpg" id="imgs" alt="Airasia Partner Hotel" width="170" height="150">
+        <img src="images/gallery4.jpg" id="imgs" alt="Airasia Pilot Driver" width="170" height="150"><br />
+    </section>
+
+    <div class="containerText">
+        <span id="displatText"></span>
+    </div>
+
+    <div class="containerDisplayImage"><br />
+        <img style="margin-left:100px;" height="350" width="490" id="AllImges" />
+    </div>
+    <script>
+
+        var getImage = document.querySelectorAll('#imgs');
+        var ImgSelected = document.querySelector('#AllImges');
+        var imgsText = document.querySelector('#displatText');
+
+        for (var ImgCount = 0; ImgCount < getImage.length; ImgCount++)
+        {
+            getImage[ImgCount].onmouseover = function ()
+            {
+                var altText = this.alt;
+                imgsText.textContent = altText;
+                ImgSelected.src = this.src;
+                imgsText.style.visibility = 'visible';
+                ImgSelected.style.visibility = 'visible';
+            };
+
+            getImage[ImgCount].onmouseout = function ()
+            {
+                imgsText.style.visibility = 'hidden';
+                ImgSelected.style.visibility = 'hidden';
+            };
+
+        };
+
+    </script>
+</body>
+</html>

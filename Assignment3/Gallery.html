@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Gallery</title>
+
+    <!-- get stylesheet from css folder -->
+    <link href="css/Style.css" rel="stylesheet" />
+    <style>
+        /*create container image*/
+        .containerImage {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: white;
+            width: 723px;
+            height: 160px;
+        }
+
+        /*create container text*/
+        .containerText {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: ghostwhite;
+            width: 723px;
+            height: 40px;
+            font-size: 23px;
+            text-align: center;
+            font-family: 'Bodoni MT';
+        }
+
+        /*create output container images & text */
+        .containerDisplayImage 
+        {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: white;
+            width: 723px;
+            height: 400px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <nav class="Content">
+        <a href="index.html">Index</a>&emsp;
+        <a href="Gallery.html">Gallery</a>&emsp;
+        <a href="constructor.html">Constructor</a>
+    </nav><br />
+    <h1 style="text-align:center;">Gallery Page</h1>
+
+    <!-- 4 image with alt text -->
+    <section class="containerImage">
+        &emsp;<img src="images/gallery1.jpg" id="imgs" alt="Airasia Premium Seat" width="170" height="150" />
+        <img src="images/gallery2.jpg" id="imgs" alt="Airasia Office" width="170" height="150">
+        <img src="images/gallery3.jpg" id="imgs" alt="Airasia Partner Hotel" width="170" height="150">
+        <img src="images/gallery4.jpg" id="imgs" alt="Airasia Pilot Driver" width="170" height="150"><br />
+    </section>
+
+    <!-- Display onmouseover Text -->
+    <div class="containerText">
+        <span id="displatText"></span>
+    </div>
+
+    <!-- Display onmouseover Images -->
+    <span class="containerDisplayImage">
+        <br />
+        <img style="margin-left:100px;" width="490" height="350" id="AllImges" />
+    </span>
+
+    <script>
+        //using querySelectorAll to display all the images
+        var getImage = document.querySelectorAll('#imgs');
+        var ImgSelected = document.querySelector('#AllImges');
+        var imgsText = document.querySelector('#displatText');
+
+        //using for loop to find all four image sources and image alt texts
+        for (var ImgCount = 0; ImgCount < getImage.length; ImgCount++)
+        {
+            //attached the mouseover event listener to display images and text
+            getImage[ImgCount].onmouseover = function ()
+            {
+                var altText = this.alt;
+                imgsText.textContent = altText;
+                ImgSelected.src = this.src;
+                imgsText.style.visibility = 'visible';
+                ImgSelected.style.visibility = 'visible';
+            };
+
+            //attached the mouseout event listener to hidden the images and text
+            getImage[ImgCount].onmouseout = function ()
+            {
+                imgsText.style.visibility = 'hidden';
+                ImgSelected.style.visibility = 'hidden';
+            };
+
+        };
+
+    </script>
+</body>
+</html>

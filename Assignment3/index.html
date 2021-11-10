@@ -1,0 +1,192 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="web Assignment3" />
+    <meta name="keywords" content="HTML, CSS, JavaScript" />
+    <meta name="author" content="Lam_Kim_Quan" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index Airline</title>
+
+    <!-- take out stylesheet from style.css file -->
+    <link href="css/Style.css" rel="stylesheet" />
+    <!-- embedded css -->
+    <style>
+        /*arange color in the ordered list using CSS pseudo-selector*/
+        ol > li:first-child {
+            color: blue;
+        }
+
+        ol > li:last-child {
+            color: green;
+        }
+
+        ol > li:nth-child(2) {
+            color: mediumpurple;
+        }
+
+        .InputBkgd {
+            background-color: #f2f2f2;
+            width: 60%;
+            height: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        /*picture move it to the center*/
+        img 
+        {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Previous and Next buttons */
+        .Previous, .next 
+        {
+            position: absolute;
+            bottom:-22%;
+            right:75%;
+            padding: 16px;
+            color: black;
+            font-weight: bold;
+            font-size: 18px;
+            background-color: white;
+            border-radius: 40px 40px 40px 40px;
+        }
+
+        /* Position [next button] to the right side */
+        .next 
+        {
+            right: 16%;
+            border-radius: 40px 40px 40px 40px;
+        }
+
+        /* On hover, add a text grey color */
+        .Previous:hover, .next:hover 
+        {
+            color: #a6a6a6;
+        }
+        .containerText 
+        {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: ghostwhite;
+            width: 70%;
+        }
+    </style>
+</head>
+<body>
+    <nav class="Content">
+        <a href="index.html">Index</a>&emsp;
+        <a href="Gallery.html">Gallery</a>&emsp;
+        <a href="constructor.html">Constructor</a>
+    </nav><br />
+    <main class="indexBckgd">
+        <br /><br />
+        <table align="center" border="1" Style="width:90%; height:50%;">
+            <tr>
+                <th colspan="2"><h2>Index of Local Airline Company</h2></th>
+            </tr>
+
+            <tr>
+                <td rowspan="2" width="600">
+                    <h3>Story Malaysia Airline Company</h3>
+                    <p>
+                        Malaysia Airlines is Malaysia’s flagship airline and a member of the oneworld airline alliance.
+                        Malaysia Airlines Berhad (MAB) commenced operations as the national carrier on 1 September
+                        2015 when Malaysian Airline System (MAS) was dissolved from Bursa Malaysia in 2014 and
+                        subsequently ceased operations on August 31, 2015.
+                    </p>
+                </td>
+                <td>
+                    <h3>Benefit Joining Malaysia Airline Company </h3>
+                    <p>
+                        <ol>
+                            <li>Get free return tickets per year for you to embark in your fantastic long awaited holiday.</li>
+                            <li>Get unlimited concessional travel with a 90% discount on your airfare.</li>
+                            <li>Meet alot new friends.</li>
+                            <li>Strong corporate culture that fosters a positive and fun work place.</li>
+                        </ol>
+                    </p>
+                </td>
+
+            </tr>
+            <tr>
+                <td>
+                    <h3>Weaknesses Of Malaysia Airline Company</h3>
+                    <ol>
+                        <li>Dicrease of the aircraft infrastructure.</li>
+                        <li>Does not follow the schedule of flight strictly.</li>
+                        <li>Caused unsatisfied feeling toward the consumer that choice to use the Air Asia service.</li>
+                        <li>Had lose lot number of they own costumer that really care about time punctual</li>
+                    </ol>
+                </td>
+            </tr>
+        </table>
+    </main>
+    <div class="containerText">
+        <!-- Text slideshows title -->
+    <h1 style="text-align:center">Airline Slideshows</h1>
+        <!-- display every single images using slideshows -->
+    </div>
+        <div class="AirlineS">
+            <img src="images/slide1.jpg" style="width:70%; height:450px;" />
+        </div>
+
+        <div class="AirlineS">
+            <img src="images/slide2.jpg" style="width:70%; height:450px;" />
+        </div>
+
+        <div class="AirlineS">
+            <img src="images/slide3.jpg" style="width:70%; height:450px;" />
+        </div>
+        
+        <!-- using span become a button to display the "previous" and "Next" slideshows  -->
+        <span class="Previous" onclick="slidePosition(-1, 0)">&#10094; PREVIOUS</span>
+        <span class="next" onclick="slidePosition(1, 0)">NEXT &#10095;</span>
+        <br />
+
+    <script>
+        // use to change picture to the next and previous index in array
+        var slideNum = [1];
+        var slideDisplay = ["AirlineS"];
+        showSlidesAline(1, 0);
+
+        //declearing the position slide by using array method
+        function slidePosition(prev, next)
+        {
+            showSlidesAline(slideNum[next] += prev, next);
+        }
+
+        //function that generate position of the slide for "previous" and "next" 
+        function showSlidesAline(prev, next)
+        {
+            var i;
+            var generateSlide = document.getElementsByClassName(slideDisplay[next]);
+
+            //if user select "next" button, slideshows will go to the right side, and the "previous button" will remain
+            if (prev > generateSlide.length)
+            {
+                slideNum[next] = 1;
+            }
+
+            //"next" button will remain when the "previous" button was selected
+            if (prev < 1)
+            {
+                slideNum[next] = generateSlide.length;      
+            }
+
+
+            for (i = 0; i < generateSlide.length; i++)
+            {
+                generateSlide[i].style.display = "none";
+            }
+            generateSlide[slideNum[next] - 1].style.display = "block";
+        }
+    </script>
+    <footer>
+        &copy; Lam_Kim_Quan 2020 Assignment 3
+    </footer>
+</body>
+</html>

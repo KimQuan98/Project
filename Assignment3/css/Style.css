@@ -1,0 +1,57 @@
+﻿/*External CSS*/
+/*Creating background image*/
+body {
+    background-image: url('../images/airlines.png');
+    background-size:100%;
+  }
+
+/*adjust every HTML documents content*/
+.Content {
+    height: 50px;
+    position: sticky;
+    top: 0px;
+    background-color: #8a39d8;
+    text-align: center;
+    font-size: 32px;
+    border: 2px solid black;
+}
+
+.Content a
+{
+    color:#FFFFCC;
+}
+
+.Content a:hover
+{
+    color:ButtonShadow;
+}
+
+/*create every 2 heading style*/
+h2,h3
+{
+  text-align:center;
+  color:darkblue;
+  font-family:'Bodoni MT';
+}
+
+/*create footer style*/
+footer {
+    background-color: blueviolet;
+    height: 50px;
+    width: 100%;
+    padding:2px;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    font-family:'Eras ITC';
+}
+
+/*Create screen window [index.html] documents*/
+.indexBckgd {
+    background-image: linear-gradient(white,#99ddff);
+    width: 90%;
+    height: 500px;
+    margin-left: 5%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
