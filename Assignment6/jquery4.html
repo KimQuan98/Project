@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>jquery4</title>
+    <link rel="stylesheet" href="style/Style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+</head>
+
+<body class="backgrdJ4">
+    <nav class="content">
+        <a href="jquery4.html">jquery 4</a>&emsp;
+        <a href="jquery5.html">jquery 5</a>&emsp;
+        <a href="jquery6.html">jquery 6</a>
+    </nav>
+
+    <h1 style="text-align:center;">About Airasia Airline</h1>
+    <div id="imgs">
+
+        AirAsia Berhad is a Malaysian low-cost airline headquartered near Kuala Lumpur, Malaysia.
+        In terms of fleet size and destinations, it is the largest airline in Malaysia. AirAsia Group
+        regularly operates domestic and international flights to more than 165 destinations in
+        25 countries/regions. Its main hub is klia2, which is the low-cost airline terminal at Kuala Lumpur
+        International Airport (KLIA) in Sepang, Selangor, Malaysia. Its subsidiaries Thailand AirAsia,
+        Indonesia AirAsia, Philippines AirAsia and India AirAsia have established locations at Bangkok-Mumbai,
+        Jakarta-Sukarno-Hatta, Manila-Ninoy Aquino and Bangalore-Kempegorda Airports. There is a hub, and
+        its sister airline AirAsia X focuses on long-distance routes. AirAsia’s registered office is located
+        in Petaling Jaya, Selangor, and its headquarters is located at Kuala Lumpur International Airport.
+        <br />
+        <br />
+        &emsp;&emsp;
+        <img src="images/airasia1.jpg" width="330" height="250" />&emsp;&emsp;
+        <img src="images/airasia2.jpg" width="330" height="250" />&emsp;&emsp;
+        <img src="images/airasia3.jpg" width="330" height="250" />&emsp;&emsp;
+        <img src="images/airasia4.jpg" width="330" height="250" />
+    </div><br />
+    <button id="chain">Chaining</button><br />
+
+    <br />
+    <h1 style="text-align:center;">What is the benefit of joining the Frequent Flyer Programme?</h1>
+    <div id="callbackText" class="windowJ4">
+        <ol>
+            <li><b>You will earn BIG Points based on the amount spend instead of the distance traveled.</b></li>
+            <li>
+                <b>That have 4 different membership status of the newly launched AirAsia Freedom Flyer Programme:</b>
+                <ul>
+                    <li><h4>Membership Status Requirement: </h4>50 and above Qualifying Sectors</li>
+                    <li><h4>Low Fare: </h4>Earn up to 10X points</li>
+                    <li><h4>Premium Flex/ Premium Flat Bed: </h4>Earn up to 12X points</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+    <br />
+    <button id="callback">Callback</button>
+    <br /><br />
+
+    <script>
+        //chaining function can allow us to run multiple jquery method within a single statement
+        $(document).ready(function () {
+            $("#chain").click(function () {
+                $("#imgs").css({ 'color': ' red', 'font-size': '17px', 'font-weight': ' bold' }).slideUp(1500).slideDown(1500);
+            });
+
+            //A callback function is execute after the current effect is completed.
+            $("#callback").click(function () {
+                $("#callbackText").hide('slow', function ()
+                {
+                    alert("Your Frequent Flyer Programme detail was hidden!!");
+                });
+            });
+        });
+    </script>
+</body>
+</html>
