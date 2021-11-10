@@ -1,0 +1,80 @@
+﻿body {
+    background-image: url('../images/airlines.png');
+    background-size: 100%;
+}
+
+/*adjust every HTML documents content*/
+.Content {
+    height: 50px;
+    position: sticky;
+    top: 0px;
+    background-color: #8a39d8;
+    text-align: center;
+    font-size: 32px;
+    border: 2px solid black;
+}
+
+    .Content a {
+        color: #FFFFCC;
+    }
+
+        .Content a:hover {
+            color: ButtonShadow;
+        }
+
+.BookingBgkd {
+    width: 80%;
+    height: 550px;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: linear-gradient(white,#a6a6a6);
+}
+/*Create style submit button*/
+.submitButton {
+    background-color: Highlight;
+    border-radius: 11px;
+    color: #fff;
+    font-family: Georgia;
+    text-shadow: 2px 3px rgba(0,0,0,0.6);
+    width: 110px;
+    height: 30px;
+    font-size: 18px;
+}
+
+    .submitButton:hover {
+        background-color: red;
+    }
+
+    .submitButton:active {
+        background-color: forestgreen;
+    }
+
+/*create style reset button*/
+.resetButton {
+    background-color: Highlight;
+    border-radius: 11px;
+    color: #fff;
+    font-family: Georgia;
+    text-shadow: 2px 3px rgba(0,0,0,0.6);
+    width: 100px;
+    height: 30px;
+    font-size: 18px;
+}
+
+    .resetButton:hover {
+        background-color: red;
+    }
+
+    .resetButton:active {
+        background-color: forestgreen;
+    }
+footer {
+    background-color: blueviolet;
+    height: 50px;
+    width: 100%;
+    padding: 2px;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    font-family: 'Eras ITC';
+}

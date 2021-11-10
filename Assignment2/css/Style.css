@@ -1,0 +1,128 @@
+﻿/*External CSS*/
+/*Creating background image*/
+body {
+    background-image: url('../images/airlines.png');
+    background-size:100%;
+  }
+
+/*adjusting the position of [about.html] header*/
+header > b {
+    margin: 23px 0px 0px 620px;
+    position: absolute;
+    font-size:25px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+/*adjust every HTML documents content*/
+.Content {
+    height: 50px;
+    position: sticky;
+    top: 0px;
+    background-color: #8a39d8;
+    text-align: center;
+    font-size: 32px;
+    border: 2px solid black;
+}
+
+.Content a
+{
+    color:#FFFFCC;
+}
+
+.Content a:hover
+{
+    color:ButtonShadow;
+}
+
+/*Create screen window for about html document*/
+.BackScreen 
+{
+    width: 90%;
+    height: 350px;
+    margin-left: 5%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+    background: rgba(255,255,255,0.6);
+}
+
+/*create every 4 heading style*/
+h1,h2,h3,h4
+{
+  text-align:center;
+  color:darkblue;
+  font-family:'Bodoni MT';
+}
+
+/*Create second screen window [about.html]*/
+.locationBckgd {
+    background-image: linear-gradient(#ff66ff,#ffff66,#00ff00);
+    width: 90%;
+    height: 350px;
+    margin-left: 5%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/*adjusting all 3 picture of food and country to be horizontal arrangement*/
+.directionPic {
+    float: left;
+    width: 25%;
+    padding: 20px;
+}
+
+.directionPic2::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/*Create third screen window [about.html]*/
+.foodBckgd {
+    background-image: linear-gradient(white,#99ddff);
+    width: 90%;
+    height: 350px;
+    margin-left: 5%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/*stick table on about.html documents*/
+.TB
+{
+    width:90%;
+    position:sticky;
+    top:53px;
+}
+
+/*create footer style*/
+footer {
+    background-color: blueviolet;
+    height: 50px;
+    width: 100%;
+    padding:2px;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    font-family:'Eras ITC';
+}
+
+/*Create screen window [contact.html] documents*/
+.contactBckgd {
+    background-color: rgba(102, 255, 255,0.6);
+    width: 90%;
+    height: 700px;
+    margin-left: 5%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/*Create screen window [index.html] documents*/
+.indexBckgd {
+    background-image: linear-gradient(white,#99ddff);
+    width: 90%;
+    height: 500px;
+    margin-left: 5%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
