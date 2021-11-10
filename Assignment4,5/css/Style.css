@@ -1,0 +1,77 @@
+﻿/*create a background body for jquery2*/
+.bodyBkgrud 
+{
+    background-image: url('../Images/airline.jpg');
+    background-size:100%;
+}
+
+/*create a contents for every jquery file*/
+.contents 
+{
+    height: 50px;
+    position: sticky;
+    top: 0px;
+    background-color: lightskyblue;
+    text-align: center;
+    font-size: 32px;
+}
+
+.contents a:hover
+{
+    color:ButtonText;
+}
+
+
+.airlineBackgrd 
+{
+    background-image: linear-gradient(white,#99ddff);
+    width: 90%;
+    height: 600px;
+    margin-left: 5%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/*adjuesting position of the picture for jquery2.html*/
+.Picdirection 
+{
+    float: left;
+    width: 30%;
+    padding: 16px;
+}
+
+.Picdirection2::after 
+{
+    content: "";
+    clear: both;
+    display: table;
+}
+.buttonL
+{
+    text-align:center;
+}
+
+/*create for every button css style*/
+.EachButn 
+{
+    background-color: darkgray;
+    border: none;
+    border-radius: 5px;
+    height:50px;
+    font-family:'Times New Roman', Times, serif;
+    font-size:17px;
+}
+.EachButn:hover
+{
+    background-color:lightgreen;
+}
+
+
+.Text 
+{
+    display: none;
+    padding: 7px;
+    background-color:lightcoral;
+    border: solid 1px #c3c3c3;
+    width:200px;
+}

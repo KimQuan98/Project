@@ -1,0 +1,315 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Jquery2</title>
+    <link href="css/Style.css" rel="stylesheet" />
+    <style>
+
+        body 
+        {
+            background-image: linear-gradient(to bottom right, #99ccff, #99ffb3);
+        }
+        .tablePos 
+        {
+            margin-left: auto;
+            margin-right: auto;
+            border-collapse: collapse;
+        }
+        #TextNot
+        {
+            padding: 7px;
+            width:200px;
+            background-color: white;
+            border: solid 1px #c3c3c3;
+        }
+        input[type=text] 
+        {
+            padding: 10px;
+            font-size: 17px;
+            border: 1px solid grey;
+            background: #f1f1f1;
+        }
+        #nextText * 
+        {
+            display: block;
+            padding: 7px;
+            border: 2px solid #c3c3c3;
+        }
+    </style>
+</head>
+<body>
+    <main class="contents">
+        <a href="jquery1.html">Jquery 1</a>&emsp;
+        <a href="jquery2.html">Jquery 2</a>&emsp;
+        <a href="jquery3.html">Jquery 3</a>
+
+        <div style="margin-left:auto; margin-top:-37px; width:300px;">
+            <input class="Search" type="text" placeholder="Search..." />
+        </div>
+    </main>
+
+
+    <div class="Filt">
+        <div2>
+            <h2 style="text-align:center;">About us</h2>
+            <p>
+                An airline is a company that provides air transport services for traveling passengers and freight.
+                Airlines utilize aircraft to supply these services and may form partnerships or alliances with other
+                airlines for codeshare agreements, in which they both offer and operate the same flight. Generally, air
+                line companies are recognized with an air operating certificate or license issued by a governmental aviation body.
+                Airlines may be scheduled or charter operators.Airline ownership has seen a shift from mostly personal ownership
+                until the 1930s to government-ownership of major airlines from the 1940s to 1980s and back to large-scale
+                privatization following the mid-1980s. Since the 1980s, there has also been a trend of major airline mergers
+                and the formation of airline alliances. The largest alliances are Star Alliance, SkyTeam and Oneworld,
+                and these three collectively accounted for more than 60% of global commercial air traffic in 2015.
+                Airline alliances coordinate their passenger service programs (such as lounges and frequent-flyer programs),
+                offer special interline tickets and often engage in extensive codesharing (sometimes systemwide).
+            </p>
+        </div2>
+        <!--Button Chilren method is to returns all direct children of the selected element.-->
+        <!--Button Find is the method returns descendant elements of the selected element.-->
+        <dir class="buttonL">
+            <button class="EachButn" id="BtnChild">Children</button>
+            <button class="EachButn" id="RemoveBtnChild">Remove Children</button>
+            <button class="EachButn" id="BtnFind">Find</button>
+            <button class="EachButn" id="RemoveBtnFind">Remove Find</button>
+        </dir>
+
+        <p><h2 style="text-align:center;">Guess The Riddle</h2></p>
+        <table class="tablePos" id="First" border="1" width="30%">
+            <tr>
+                <th style="text-align:center;">Answer Question 1</th>
+            </tr>
+
+            <tr>
+                <td>Vintage clothes</td>
+            </tr>
+
+            <tr>
+                <td>Garbage</td>
+            </tr>
+            <tr>
+                <td>Counterfeit money</td>
+            </tr>
+            <tr>
+                <td>Secrets</td>
+            </tr>
+        </table>
+
+        <p id="paragraph">
+            1. Whoever makes it, tells it not. Whoever takes it, knows it not.
+            And whoever knows it wants it not. What is it?
+        <p>
+            &emsp;&emsp;<button class="EachButn" id="EqualBtn">Answer</button>
+            <br />
+
+        <p id="paragraph">
+            2. When I'm used, I'm useless, once offered, soon rejected.
+            In desperation oft expressed, the intended not protected.
+            Cool phrasing, but what is this?
+        </p>
+
+        <div id="TextNot" class="notBtn1">Hatred</div>
+        <div id="TextNot" class="notBtn2">Shame</div>
+        <div id="TextNot" class="notBtn3">A bad excuse</div>
+        <div id="TextNot" class="notBtn4">Anger</div>
+        <div id="TextNot" class="notBtn5">A garage sale</div>
+
+        <div class="appearText1 Text">Hatred</div>
+        <div class="appearText2 Text">Shame</div>
+        <div class="appearText3 Text">A bad excuse</div>
+        <div class="appearText4 Text">Anger</div>
+        <div class="appearText5 Text">A garage sale</div>
+
+
+        <p id="paragraph">3. What can travel around the world while staying in a corner?</p>
+
+        <span>
+            <p2 id="TextNot">A globe</p2>
+            <p3 id="TextNot">The Page of a Book</p3>
+            <p4 id="TextNot">A stamp</p4>
+            <p5 id="TextNot">The internet</p5>
+            <button class="EachButn" id="siblingBtn">Answer</button>
+        </span>
+
+        <p id="paragraph">
+            4. You can drop me from the tallest building and I'll be fine, but if you drop me in water I die. What am I?<br />
+            Hints: What is the Next answer of <b>Wishes</b>?
+        </p>
+        <ul id="nextText" style="width:200px;">
+            <li class="answerNext">Wishes</li>
+            <li>Paper</li>
+            <li>Dreams</li>
+            <li>A parachute</li>
+        </ul>
+        <button class="EachButn" id="nextBtn">Answer</button>
+
+        <p id="paragraph">
+            5. If you have me, you want to share me. If you share me, you haven't got me. What am I?<br />
+            Hints: The answer between Secrets and Human is uncorrect. Therefore, the correct answer is...?
+        </p>
+        <ul id="nextText" style="width:200px;">
+            <li class="start" id="correct">Secrets</li>
+            <li>Money</li>
+            <li>Snacks</li>
+            <li>Dreams Secret</li>
+            <li class="stop" id="wrongAnswer">Human</li>
+        </ul>
+        <button id="nextUntilBtn" class="EachButn">Hints</button>&emsp;
+        <button class="EachButn" id="incorrectBtn">Answer</button>
+
+        <p id="paragraph">
+            6. Forward I am heavy, but backward I am not. What am I?<br />
+            Hints:What is the previous answer of <b>Beet</b>?
+        </p>
+        <ul id="nextText" style="width:200px;">
+            <li>Time</li>
+            <li>Weight</li>
+            <li>Ton</li>
+            <li class="answerPrev">Beet</li>
+        </ul>
+        <button id="prevBtn" class="EachButn">Answer</button>
+
+        <p id="paragraph">
+            7. What has a neck but no head?<br />
+            Hints: The answer between A Worm and A bottle is uncorrect. Therefore, the correct answer is...?
+        </p>
+        <ul id="nextText" style="width:200px;">
+            <li class="stopPrev" id="prevWrongAnswer">A shoes</li>
+            <li>A snake</li>
+            <li>A fool in love</li>
+            <li>A worm</li>
+            <li class="startPrev" id="prevCorrect">A bottle</li>
+        </ul>
+        <button id="prevUntilBtn" class="EachButn">Hints</button>&emsp;
+        <button id="incorrectPrevBtn" class="EachButn">Answer</button>
+    </div>
+    <script>
+        $(document).ready(function ($)
+        {
+            //Descendent – children and find
+            //children
+            $("#BtnChild").click(function ()
+            {
+                $("div2").find("p").css({ "color": "red", "border": "2px solid red", "font-weight": "bold" });
+            });
+            $("#RemoveBtnChild").click(function ()
+            {
+                $("div2").find("p").css({ "color": "black", "border": "none", "font-weight": "normal" });
+            });
+
+            //find
+            $("#BtnFind").click(function ()
+            {
+                $("div2").children().css({ "color": "red", "border": "2px solid red" });
+            });
+            $("#RemoveBtnFind").click(function ()
+            {
+                $("div2").children().css({ "color": "black", "border": "none"});
+            });
+
+            //Siblings – sibling, next, next until, previous and previous until
+            //sibling
+            $("#siblingBtn").click(function ()
+            {
+                $("p4").siblings().css({ "display": "none" });
+            });
+
+            //next
+            $("#nextBtn").click(function ()
+            {
+                $(".answerNext").next().css({ "background-color": "lightgreen", "font-weight" : "bold"});
+            });
+
+            //next until
+            $("#nextUntilBtn").click(function ()
+            {
+                $(".start").nextUntil(".stop").css({ "background-color": "lightcoral" });
+            });
+
+            $("#incorrectBtn").click(function ()
+            {
+                $("#wrongAnswer").css({ "background-color": "lightcoral" });
+                $("#correct").css({ "background-color": "lightgreen", "font-weight": "bold" });
+            });
+
+            //previous
+            $("#prevBtn").click(function ()
+            {
+                $(".answerPrev").prev().css({ "background-color": "lightgreen", "font-weight": "bold" });
+            });
+
+            //previous until
+            $("#prevUntilBtn").click(function ()
+            {
+                $(".startPrev").prevUntil(".stopPrev").css({ "background-color": "lightcoral" });
+            });
+
+            $("#incorrectPrevBtn").click(function ()
+            {
+                $("#prevWrongAnswer").css({ "background-color": "lightcoral" });
+                $("#prevCorrect").css({ "background-color": "lightgreen", "font-weight": "bold" });
+            });
+
+
+            //Filtering – first, filter, equal and not
+            //First
+            $("#First").mouseover(function ()
+            {
+                $("tr").first().css({ "background-color": "lightgreen" });
+            });
+            $("#First").mouseout(function ()
+            {
+                $("tr").css({ "background-color": "white" });
+            });
+
+            //Filter is the method of returns elements that match a certain criteria.
+            $(".Search").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $(".Filt *").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+            $("p").filter("#paragraph").css({ "background-color": "#ffb3ff" });
+
+
+            //eq->equal is the selector selects an element with a specific index number
+            $("#EqualBtn").click(function () {
+                $("td").eq(2).css({ "background-color": "lightblue", "font-weight": "bold" });
+            });
+
+            //not is a selector that selects all elements except the specified element.
+            $(".notBtn1").click(function (Txt) {
+                Txt.preventDefault();
+                $(".Text").not(".appearText1").slideUp();
+                $(".appearText1").slideToggle("slow");
+            });
+
+            $(".notBtn2").click(function (Txt) {
+                Txt.preventDefault();
+                $(".Text").not(".appearText2").slideUp();
+                $(".appearText2").slideToggle("slow");
+            });
+
+            $(".notBtn3").click(function (Txt) {
+                Txt.preventDefault();
+                $(".Text").not(".appearText3").slideUp();
+                $(".appearText3").slideToggle("slow").css({ "background-color": "lightgreen" });
+            });
+            $(".notBtn4").click(function (Txt) {
+                Txt.preventDefault();
+                $(".Text").not(".appearText4").slideUp();
+                $(".appearText4").slideToggle("slow");
+            });
+            $(".notBtn5").click(function (Txt) {
+                Txt.preventDefault();
+                $(".Text").not(".appearText5").slideUp();
+                $(".appearText5").slideToggle("slow");
+            });
+
+        });
+    </script>
+
+</body>
+</html>

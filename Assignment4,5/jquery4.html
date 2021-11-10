@@ -1,0 +1,272 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Jquery 4</title>
+    <link href="css/Style.css" rel="stylesheet" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+    <style>
+        .selectHoriz 
+        {
+            margin: 0;
+            padding: 0;
+            width: 1300px;
+        }
+        .selectHoriz2 
+        {
+            margin: 3px 3px 3px 0;
+            padding: 1px;
+            float: left;
+            width: 250px;
+            height: 200px;
+            font-size: 4em;
+            text-align: center;
+        }
+        .drag 
+        {
+            background-image: url('Images/road.jpg');
+            height: 500px;
+        }
+
+        .carPic 
+        {
+            position: absolute;
+            top: 330px;
+        }
+        .dropp 
+        {
+            border: 4px solid black;
+            font-size: 25px;
+            font-weight: bold;
+            background-color: lightsteelblue;
+            width: 400px;
+            padding: 50px;
+            display: inline-table;
+            text-align: center;
+        }
+        li
+        {
+            list-style-type:none;
+        }
+
+        #container 
+        {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: bisque;
+            height: 250px;
+            width: 700px;
+        }
+        #resize
+        {
+            border:1px solid grey;
+        }
+        
+        .ui-widget-header
+        {
+            text-align:center;
+        }
+
+        #selectText 
+        {
+            font-size: 18px;
+            font-weight:bold;
+        }
+
+        #selects 
+        {
+            list-style-type: none;
+            margin: 0;
+            width: 60%;
+        }
+        #SelectSpan
+        {
+            display:none;
+        }
+
+
+        #sort {
+            margin: 0 5px 5px 5px;
+            padding: 4px;
+            width: 90%;
+        }
+    </style>
+</head>
+<body>
+    <nav class="contents">
+        <a href="jquery4.html">Jquery 4</a>&emsp;
+        <a href="jquery5.html">Jquery 5</a>&emsp;
+        <a href="booking.html">booking[Tooltip]</a>
+    </nav>
+
+    <!-- Draggable -->
+    <h1 style="text-align:center;">Moving Car</h1>
+    <div class="drag">
+        <img src="Images/redcar.png" id="dragga" class="carPic" height="230" width="320" />
+    </div>
+    <br /><br />
+    <!-- droppable -->
+    <div class="dropp" style="width:300px;">
+        Carnivore and Herbivore
+        <ul id="animals">
+            <li data-value="herbivore">
+                <img src="Images/cow.jpg" width="150" height="150" />
+            </li>
+            <li data-value="carnivore">
+                <img src="Images/lion.jpg" width="150" height="150" />
+            </li>
+            <li data-value="carnivore">
+                <img src="Images/tiger.jpg" width="150" height="150" />
+            </li>
+            <li data-value="herbivore">
+                <img src="Images/elephant.jpg" width="150" height="150" />
+            </li>
+            <li data-value="herbivore">
+                <img src="Images/sheep.jpg" width="150" height="150" />
+            </li>
+            <li data-value="carnivore">
+                <img src="Images/shark.jpg" width="150" height="150" />
+            </li>
+        </ul>
+    </div>
+
+    <div class="dropp" id="divCarni">
+        Carnivore
+        <ul id="carni">
+        </ul>
+    </div>
+
+    <div class="dropp" id="divHerbi">
+        Herbivore
+        <ul id="herbi">
+        </ul>
+    </div>
+    <br /><br /><br />
+
+    <!-- Resizable -->
+    <div id="container" class="ui-widget-content">
+        <h1 class="ui-widget-header">History of Air Asia</h1>
+        <div id="resize">
+            Air Asia was established in 1993 and commenced its operations on 18th November 1996.
+            This airline was originally founded by a government owned conglomerate DRB-Hicom.
+            However, on 2nd December 2001, the heaviliy indebted airline was purchased by former
+            Time Warner executive Tony Fernandes’s company Tune Air Sdn Bhd for the token sum of
+            one ringgit. Fernandes proceeded to engineer a remarkable turnaround, turning a profit
+            in 2002 and launching new routes from its hub in KLIA at breakneck speed which undercutting
+            former monopoly operator Malaysia Airlines with promotional fares as low as one ringgit.
+        </div>
+    </div>
+    <br />
+
+    <!-- sortable -->
+    <h1>Specify Animals Sortable:</h1>
+    <div id="sort">
+        <img src="Images/lion.jpg" width="200" height="190" />
+        <img class="ui-state-disabled" src="Images/cow.jpg" width="200" height="190" />
+        <img src="Images/sheep.jpg" width="200" height="190" />
+        <img class=" ui-state-disabled" src="Images/elephant.jpg" width="200" height="190" />
+        <img class=" ui-state-disabled" src="Images/shark.jpg" width="200" height="190" />
+        <img src="Images/tiger.jpg" width="200" height="190" />
+    </div>
+
+    <!-- selectable -->
+    <h1>Preferred User Selected Seat</h1>
+    <p id="selectText">
+        <span>User Selected Seat:</span>
+        <span id="outputSelect">
+            <img src="Images/tenor.gif" height="50" width="50" />
+        </span>
+    </p>
+    <ol id="selects">
+        <li>
+            <span id="SelectSpan">&emsp;Seat 1 is selected!&emsp;</span>
+            <img src="Images/seat.jpg" height="150" width="100" />
+        </li>
+        <li>
+            <span id="SelectSpan">&emsp;Seat 2 is selected!&emsp;</span>
+            <img src="Images/seat2.jpg" height="150" width="100" />
+        </li>
+        <li>
+            <span id="SelectSpan">&emsp;Seat 3 is selected!&emsp;</span>
+            <img src="Images/seat3.jpg" height="150" width="100" />
+        </li>
+        <li>
+            <span id="SelectSpan">&emsp;Seat 4 is selected!&emsp;</span>
+            <img src="Images/seat4.jpg" height="150" width="100" />
+        </li>
+        <li>
+            <span id="SelectSpan">&emsp;Seat 5 is selected!&emsp;</span>
+            <img src="Images/seat5.jpg" height="150" width="100" />
+        </li>
+        <li>
+            <span id="SelectSpan">&emsp;Seat 6 is selected!&emsp;</span>
+            <img src="Images/seat6.png" height="150" width="100" />
+        </li>
+    </ol>
+    <br />
+    <script>
+        $(function () {
+            //draggable
+            //only can move the image in horizontal
+            $("#dragga").draggable({ axis: "x", containment: "parent" });
+
+            //drag the carnivore and herbivore animal to the other table
+            $('#animals li').draggable({
+                helper: 'clone',
+                revert: 'invalid'
+            });
+
+            //only can drop the carnivore animal to the carnivore animal table
+            $('#divCarni').droppable({
+                accept: 'li[data-value="carnivore"]',
+                drop: function (event, ui) {
+                    $('#carni').append(ui.draggable);
+                }
+            });
+
+            //only can drop the herbivore animal to the herbivore animal table
+            $('#divHerbi').droppable({
+                accept: 'li[data-value="herbivore"]',
+                drop: function (event, ui) {
+                    $('#herbi').append(ui.draggable);
+                }
+            });
+
+            //resizable
+            $("#resize").resizable
+                ({
+                    containment: "#container"
+                });
+
+            //Selectable
+            $("#selects").selectable({
+                stop: function () {
+                    var result = $("#outputSelect").empty();
+                    $(".ui-selected", this).each(function () {
+                        result.append($(this).text());
+                    });
+                }
+            });
+
+
+            //Sortable
+            $(function () {
+
+                $("#sort").sortable({
+                    cancel: ".ui-state-disabled"
+                });
+
+                $("#sort").disableSelection();
+            });
+        });
+
+
+    </script>
+
+</body>
+</html>

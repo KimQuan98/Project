@@ -1,0 +1,556 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Jquery 5</title>
+    <link href="css/Style.css" rel="stylesheet" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+    <style>
+        /*progressbar */
+        .ui-progressbar 
+        {
+            position: relative;
+        }
+
+        .progress-label 
+        {
+            position: absolute;
+            left: 45%;
+            top: 4px;
+            font-weight: bold;
+        }
+
+        /*Tab*/
+        #dialogbox label, #dialogbox input {
+            display: block;
+        }
+
+        #dialogbox label {
+            margin-top: 10px;
+        }
+
+        #dialogbox input {
+            width: 100%;
+        }
+
+        #dialogbox textarea {
+            width: 100%;
+            height: 100%;
+        }
+
+        #tabs {
+            margin-top: 15px;
+        }
+
+            #tabs li .ui-icon-close {
+                float: left;
+                margin: 3px 5px 0 0;
+                cursor: pointer;
+            }
+        label, input 
+        {
+            display: block;
+        }
+
+            input.text 
+            {
+                margin-bottom: 12px;
+                width: 95%;
+                padding: 4px;
+            }
+
+        fieldset 
+        {
+            padding: 0;
+            border: 0;
+            margin-top: 30px;
+        }
+
+        div#mbrContain 
+        {
+            width: 350px;
+            margin: 20px 0;
+        }
+
+            div#mbrContain table 
+            {
+                width: 100%;
+            }
+
+                div#mbrContain table td, div#mbrContain table th 
+                {
+                    border: 2px solid #eee;
+                    padding: 10px;
+                    text-align:center;
+                }
+
+        .ui-dialog .ui-state-error 
+        {
+            padding: 5px;
+        }
+
+        #tipsValidate 
+        {
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="contents">
+        <a href="jquery4.html">Jquery 4</a>&emsp;
+        <a href="jquery5.html">Jquery 5</a>&emsp;
+        <a href="booking.html">booking[Tooltip]</a>
+    </nav>
+    <br />
+    <!-- progressbar -->
+    <div id="progress"><div class="progress-label">Loading...</div></div>
+    <br />
+
+    <!-- Tab -->
+    <h1>Give a feedback about our Airline Services</h1>
+    <div id="dialogbox" title="What do you think about us?">
+        <form>
+            <fieldset class="ui-helper-reset">
+                <label for="tabName"><b>Name</b></label>
+                <input type="text" name="tabName" id="tabName" value="John Lee" class="ui-widget-content ui-corner-all">
+                <label for="tabComm"><b>Comment</b></label>
+                <textarea name="tabComm" id="tabComm" class="ui-widget-content ui-corner-all">Comment...</textarea>
+            </fieldset>
+        </form>
+    </div>
+    <button id="tabAdded">Add Tab</button>
+    <div id="tabs">
+        <ul>
+            <li><a href="#numTab-1">Andrew Wong</a> <span class="ui-icon ui-icon-close" role="presentation">Remove Tab</span></li>
+        </ul>
+        <div id="numTab-1">
+            <p>
+                I have booked them for "Taiwan Trip", but unfortunately they are affected by Covid-19. So I asked for a refund.
+                Initially, it is voluntary, then a credit account request, and finally, it is refunded to the original payment.
+                Therefore, I chose a credit account, but the refund for the original payment is not available at this time. Soon,
+                when the refund was restored to its original state, I filed a refund case again. Then, I have contacted them many
+                times and suggested that I only need the progress of the last case. They said: "Don't worry, we will handle the latest
+                case under your account." Then, they chose to refund back to the account, Instead of the original payment method,
+                now refuses to refund back to the original payment method.
+            </p>
+        </div>
+    </div>
+    <br />
+    <!-- autocomplte -->
+    <h1>Display Data from xml file</h1>
+    <div class="ui-widget">
+        <label for="app">Appstore Matches: </label>
+        <input id="app" />
+    </div>
+    <div class="ui-widget" style="margin-top:15px;">
+        Result:
+        <div id="resultAutoComplete" style="height: 200px; width: 350px;" class="ui-widget-content"></div>
+    </div>
+    <br />
+    <!-- Dialog -->
+    <h1>Joining BIG Membership Airasia</h1>
+    <div id="dialogForm" title="Create new Member Account">
+        <p id="tipsValidate">All form fields are required.</p>
+        <form>
+            <fieldset>
+                <label for="name">Member Name</label>
+                <input type="text" name="name" id="name" value="" class="text ui-widget-content ui-corner-all" title="We required your Name to make sure you are the Owner.">
+                <label for="email">Member Email</label>
+                <input type="text" name="email" id="email" value="" class="text ui-widget-content ui-corner-all" title="We required your Email to update some information of Airasia BIG Membership.">
+                <label for="phneNumber">Phone Number</label>
+                <input type="text" name="phneNumber" id="phneNumber" value="" class="text ui-widget-content ui-corner-all" title="We required your Phone Number to keep content with us.">
+                <label for="status">Status</label>
+                <input type="text" name="status" id="status" value="" class="text ui-widget-content ui-corner-all" title="We need to know where you are from.">
+
+                <input type="submit" tabindex="-1" style="position:absolute; top:-1000px;">
+            </fieldset>
+        </form>
+    </div>
+
+    <div id="mbrContain" class="ui-widget">
+        <table id="member" class="ui-widget ui-widget-content">
+            <thead>
+                <tr class="ui-widget-header ">
+                    <th>Member Name</th>
+                    <th>Member Email</th>
+                    <th>Phone Number</th>
+                    <th>State</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Clarence Loo</td>
+                    <td>clarence@gmail.com</td>
+                    <td>0169913214</td>
+                    <td>Johor</td>
+                </tr>
+                <tr>
+                    <td>Michael Lee</td>
+                    <td>michael20@hotmail.com</td>
+                    <td>0129213392</td>
+                    <td>Ipoh</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <button id="createUser">Create Account</button>
+    <br />
+
+    <!-- Datepicker -->
+    <h1>Airasia Depart and Return Date</h1>
+    <form class="datePick">
+        <label for="deprt">Depart</label>
+        <input type="text" id="deprt" name="depart">
+        <label for="rturn">Return</label>
+        <input type="text" id="rturn" name="return"><br />
+        <button class="datePick">Result</button>
+    </form>
+    <div>
+        <h3>Result:</h3>
+        <span id="result"></span>
+    </div><br />
+    <h1>Differentiation between each of the Airline</h1>
+    <div id="accord">
+        <h3>Malaysia Airline</h3>
+        <div>
+            <p>
+                Malaysia Airlines Berhad (MAB) (Malay: Penerbangan Malaysia Berhad), formerly known as Malaysia Airlines System (MAS)
+                (Malay: Sistem Penerbangan Malaysia), brand name is Malaysia Airlines, is Malaysia’s flagship airline and also oneworld
+                Member of an airline alliance. (MAS’ subsidiaries are still retained by MAS Kargo and MAS Wings.) The company’s headquarters
+                are located at Kuala Lumpur International Airport. In August 2014, Khazanah Nasional, the sovereign wealth fund of the
+                Malaysian government, owned 69.37% of the airline at the time, and announced its intention to purchase residual ownership
+                from minority shareholders and delisting the airline from Bursa Securities. Thus nationalizing the airline. It mainly
+                operates from Kuala Lumpur International Airport and secondary hubs in Kota Kinabalu and Kuching to destinations in Asia,
+                Oceania and Europe.
+            </p>
+        </div>
+        <h3>American Airlines</h3>
+        <div>
+            <p>
+                A major US airline headquartered in Fort Worth, Texas, in the Dallas-Fort Worth metropolitan area.According to the size
+                of the fleet, the regular passenger capacity and earning passenger miles. American Airlines and its regional partners
+                operate a wide range of international business together with domestic networks, there are nearly 6,800 flights every
+                day to nearly 350 destinations in more than 50 countries/regions. American Airlines is a founding member of the Oneworld
+                alliance, which is the third largest alliance in the United States world. Regional services are operated by independent
+                operators and affiliated operators under the brand name American Eagle.
+            </p>
+        </div>
+        <h3>China Airlines</h3>
+        <div>
+            <p>
+                China Airlines is the state-owned national carrier of the Republic of China (commonly known as Taiwan),
+                and one of its two major airlines along with EVA Air. It is headquartered in Taipei Taoyuan International Airport
+                and operates over 1400 flights weekly (including 91 pure cargo flights) to 102 cities across Asia, Europe,
+                North America, and Oceania. Carrying over 19 million passengers and 5700 tons of cargo in 2017, the carrier
+                was the 33rd largest airline in the world in terms of revenue passenger kilometers (RPK) and 10th largest
+                in terms of freight revenue ton kilometers (FRTK).
+            </p>
+        </div>
+        <h3>Korean Airline</h3>
+        <div>
+            <p>
+                Korean Air is the largest airline and flag carrier of South Korea based on fleet size, international destinations
+                and international flights. The airline's global headquarters is located in Seoul, South Korea. Korean Air was
+                established on March 1, 1969, after the Hanjin Group acquired government-owned Korean Air Lines. Through their
+                majority control of Hanjin KAL Corporation, the Cho family, the owner family of Hanjin Group is still the airline's
+                largest and controlling, shareholder. As of 5th June 2020, Hanjin KAL holds 29.27% of Korean Air shares. Korean
+                Air is a founding member of the SkyTeam airline alliance.
+            </p>
+        </div>
+        <h3>Japan Airline</h3>
+        <div>
+            <p>
+                Japan Airlines Co, also known as Nikkō, is an international airline and Japan's flagship airline, headquartered in
+                Shinagawa, Tokyo. Its main hubs are Tokyo's Narita International Airport and Haneda Airport, and Osaka's Kansai
+                International Airport and Itami Airport. JAL Group companies include: Japan Airlines, J-Air, Japan Airlines Commuter,
+                Japan Transocean Airlines and Ryukyu Airlines commuter to provide domestic feeder services, and JAL Cargo to provide
+                cargo and mail services
+            </p>
+        </div>
+    </div>
+    <br />
+    <script>
+        $(function () {
+
+            //Dialog - using model form
+            var dialog, form,
+
+                emailValide = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
+                mbrName = $("#name"),
+                mbrEmail = $("#email"),
+                mbrNumber = $("#phneNumber"),
+                status = $("#status"),
+                fieldsAll = $([]).add(mbrName).add(mbrEmail).add(mbrNumber).add(status),
+                tips = $("#tipsValidate");
+
+            function tipsUpdate(tip) {
+                tips
+                    .text(tip)
+                    .addClass("ui-state-highlight");
+                setTimeout(function () {
+                    tips.removeClass("ui-state-highlight", 1500);
+                }, 500);
+            }
+
+            //display the error message when user input wrong data
+            function lengthCheck(x, y, minimum, maximum) {
+                if (x.val().length > maximum || x.val().length < minimum) {
+                    x.addClass("ui-state-error");
+                    tipsUpdate("Length of " + y + " must be between " +
+                        minimum + " and " + maximum + ".");
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+
+            function regeCheck(x, rege, y) {
+                if (!(rege.test(x.val()))) {
+                    x.addClass("ui-state-error");
+                    tipsUpdate(y);
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+            //validation for create the new member account
+            function addUser() {
+                var validate = true;
+                fieldsAll.removeClass("ui-state-error");
+
+                validate = validate && lengthCheck(mbrName, "Member name", 3, 16);
+                validate = validate && lengthCheck(mbrEmail, "Email", 6, 80);
+                validate = validate && lengthCheck(mbrNumber, "Phone Number", 9, 11);
+                validate = validate && lengthCheck(status, "Status", 3, 30);
+
+
+                validate = validate && regeCheck(mbrName, /^[a-z][0-9a-z_\s]+$/i, "Member Name may consist of a-z, and must begin with a letter.");
+                validate = validate && regeCheck(mbrEmail, emailValide, "Example: ui@jquery.com");
+                validate = validate && regeCheck(mbrNumber, /^([0-9])+$/, "Phone Number must be only number: 0-9, 9-11 numbers ");
+                validate = validate && regeCheck(status, /^[a-zA-Z]+$/, "status may only consist of a-z, and must begin with only a letter.");
+
+                if (validate) {
+                    $("#member tbody").append("<tr>" +
+                        "<td>" + mbrName.val() + "</td>" +
+                        "<td>" + mbrEmail.val() + "</td>" +
+                        "<td>" + mbrNumber.val() + "</td>" +
+                        "<td>" + status.val() + "</td>" +
+                        "</tr>");
+                    dialog.dialog("close");
+                }
+                return validate;
+            }
+            dialog = $("#dialogForm").dialog({
+                autoOpen: false,
+                height: 400,
+                width: 350,
+                modal: true,
+                buttons:
+                {
+                    //create an new member account
+                    "Create an account": addUser,
+                    Cancel: function () {
+                        dialog.dialog("close");
+                    }
+                },
+                //close the dialog box when user click the cancel button
+                close: function () {
+                    form[0].reset();
+                    fieldsAll.removeClass("ui-state-error");
+                }
+            });
+
+            form = dialog.find("form").on("submit", function (event) {
+                event.preventDefault();
+                addUser();
+            });
+
+            $("#createUser").button().on("click", function () {
+                dialog.dialog("open");
+            });
+
+            //Datepicker – user should be able to select the depart and return date.
+            $(".datePick").submit(function () {
+                //get value from depart and return date
+                var result = "";
+                var date1 = $("#deprt").val();
+                var date2 = $("#rturn").val();
+                var dateFormat = "mm/dd/yy",
+                    deprt = $("#deprt")
+                        .datepicker({
+                            changeMonth: true,
+                            minDate: 0
+                        })
+
+                        // minimum the date when user want to change the date from return date
+                        .on("change", function () {
+                            rturn.datepicker("option", "minDate", getDate(this));
+                        }),
+                    rturn = $("#rturn").datepicker({
+                        changeMonth: true
+                    })
+                        // maximum the date when user want to change the date from depart date
+                        .on("change", function () {
+                            deprt.datepicker("option", "maxDate", getDate(this));
+                        });
+
+                function getDate(element) {
+                    var date;
+                    date = $.datepicker.parseDate(dateFormat, element.value);
+                    return date;
+                }
+
+                //display date result
+                result = "Depart date: " + date1 + "<br/>Return Date: " + date2;
+                $("#result").html(result);
+                return false;
+            });
+
+            //Accordion - No auto-height
+            $("#accord").accordion({
+                heightStyle: "content"
+            });
+
+            //Progress Bar - progress should increase the steps value by 5
+            $(function () {
+                var progressbar = $("#progress"),
+                    progressLabel = $(".progress-label");
+
+                progressbar.progressbar({
+                    value: false,
+                    change: function () {
+                        progressLabel.text(progressbar.progressbar("value") + "%");
+                    },
+                    complete: function () {
+                        progressLabel.text("You Complete the task!");
+                    }
+                });
+
+                function progress() {
+                    var values = progressbar.progressbar("value") || 0;
+
+                    progressbar.progressbar("value", values + 5);
+
+                    if (values < 99) {
+                        setTimeout(progress, 80);
+                    }
+                }
+                setTimeout(progress, 1000);
+            });
+
+            //Tabs - add and delete tab
+            $(function () {
+                var tabName = $("#tabName");
+                var tabComment = $("#tabComm");
+                var tabTemplate = "<li><a href='#{href}'>#{label}</a> <span class='ui-icon ui-icon-close' role='presentation'>Remove Tab</span></li>";
+                var tabCount = 2;
+
+                var tab = $("#tabs").tabs();
+
+                //customize the button and a "close" callback resetting the form inside
+                var dialogBox = $("#dialogbox").dialog({
+                    autoOpen: false,
+                    modal: true,
+                    buttons: {
+                        Add: function () {
+                            addTab();
+                            $(this).dialog("close");
+                        },
+                        Cancel: function () {
+                            $(this).dialog("close");
+                        }
+                    },
+                    close: function () {
+                        form[0].reset();
+                    }
+                });
+
+                //creating the addtab submit button and closing the dialog boxes when user click the Add button
+                var form = dialogBox.find("form").on("submit", function (event) {
+                    addTab();
+                    dialogBox.dialog("close");
+                    event.preventDefault();
+                });
+
+                //Add the new tab using the input form above
+                function addTab() {
+                    var label = tabName.val() || "Tab " + tabCount;
+                    var numTab = "numTab-" + tabCount;
+                    var list = $(tabTemplate.replace(/#\{href\}/g, "#" + numTab).replace(/#\{label\}/g, label));
+                    var contentTab = tabComment.val() || "Tab " + tabCount + " content.";
+
+                    tab.find(".ui-tabs-nav").append(list);
+                    tab.append("<div id='" + numTab + "'><p>" + contentTab + "</p></div>");
+                    tab.tabs("refresh");
+                    tabCount++;
+                }
+
+                // opening the dialog boxes
+                $("#tabAdded")
+                    .button()
+                    .on("click", function () {
+                        dialogBox.dialog("open");
+                    });
+
+                // closing the dialog boxes when user click cancel button
+                tab.on("click", "span.ui-icon-close", function () {
+                    var panel = $(this).closest("li").remove().attr("aria-controls");
+                    $("#" + panel).remove();
+                    tab.tabs("refresh");
+                });
+
+                tab.on("keyup", function (e) {
+                    if (e.altKey && e.keyCode === $.ui.keyCode.BACKSPACE) {
+                        var panel = tab.find(".ui-tabs-active").remove().attr("aria-controls");
+                        $("#" + panel).remove();
+                        tab.tabs("refresh");
+                    }
+                });
+            });
+        });
+
+        //Autocomplete
+        $(function () {
+            function result(message) {
+                $("<div/>").text(message).prependTo("#resultAutoComplete");
+                $("#resultAutoComplete").attr("scrollTop", 0);
+            }
+
+            //get appstore.xml file using ajax form
+            $.ajax({
+                url: "appstore.xml",
+                dataType: "xml",
+                success: function (xmlResponse) {
+                    var dataApp = $("application", xmlResponse).map(function () {
+                        return {//return each of the value from xml file
+                            value: $("name", this).text(),
+                            email: $("contactEmail", this).text(),
+                            category: $("category", this).text()
+                        };
+                    }).get();
+                    //provide autocomplete as the datasource
+                    $("#app").autocomplete({
+                        source: dataApp,
+                        minLength: 0,
+                        select: function (event, app) {
+                            //display the result
+                            result(app.item ?
+                                "Apps Name: " + app.item.value + ",Email: " + app.item.email + ", Category: " + app.item.category :
+                                "Nothing selected, input was " + this.value);
+                        }
+                    });
+                }
+            });
+        });
+
+
+
+
+
+    </script>
+</body>
+</html>

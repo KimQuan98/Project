@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Booking Tooltip</title>
+    <link href="css/Style.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+</head>
+<body>
+    <nav class="contents">
+        <a href="jquery4.html">Jquery 4</a>&emsp;
+        <a href="jquery5.html">Jquery 5</a>&emsp;
+        <a href="booking.html">booking[Tooltip]</a>
+    </nav>
+
+    <form class="BookingBgkd" onsubmit="return booking(false)">
+
+        <!-- Title of flight booking -->
+        <h1>Flight Booking</h1>
+
+        <!-- create customer input name -->
+
+        <label title="This is the label Customer Name">Customer Name: </label>
+        <input id="CName" type="text" title="Insert your name" placeholder="Name" /><br /><br />
+
+        <!-- create customer input Phone number -->
+        <label title="This is label Customer Phone Number!">Customer Phone Number: </label>
+        <input id="Numbers" type="tel" title="Insert your Phone Number" placeholder="Phone Number" /><br /><br />
+
+        <!-- create customer input Email Address -->
+        <label title="This is label Customer Email Address!">Customer Email Address: </label>
+        <input id="E_mail" type="email" title="Insert your Email" placeholder="Email" /><br /><br />
+
+        <!-- create radio button for customer which Identification Number they want to use -->
+        <label title="This is label Customer Identification Number!">Customer Identification Number: </label><br />
+        <input type="radio" id="r1" title="Radio button Passport!"> Passport<br />
+        <input type="radio" id="r2" title="Radio button Identity Card (IC)!"> Identity Card (IC)<br /><br />
+
+        <!-- create few option of flight origin malaysia to let user choose -->
+        <label title="This is label for Flight Origin!">Flight Origin: </label>
+        <select id="origin" title="Selection Option Destination!">
+            <option>- None -</option>
+            <option>Kuala Lumpur</option>
+            <option>Penang</option>
+            <option>Melaka</option>
+        </select>
+        <br /><br />
+
+        <!-- create few option of flight destination which destination they want to go -->
+        <label title="This is label for Flight Destination!">Flight Destination: </label>
+        <select id="destination" title="Selection Option Destination!">
+            <option>- None -</option>
+            <option>China</option>
+            <option>Japan</option>
+            <option>Korean</option>
+        </select>
+        <br /><br />
+
+        <!-- create flight destination depart date  -->
+        <label title="This is label for Depart Date!">Depart Date: </label>
+        <input title="Choose your Depart Date" type="date" id="Date" />
+        <br /><br />
+
+        <!--create a few checkbox for Adult,children and infant to let user choose and insert the quantity of ticket -->
+        <label title="This is label for Ticket!" >Quantity of Ticket:</label><br />
+        <input type="checkbox" id="TxtAdult" title="checkbox Adult" />Adult<br />
+        <input type="checkbox" id="TxtChild" title="checkbox Children" />Children<br />
+        <input type="checkbox" id="TxtInfant" title="checkbox Infant" />Infant<br />
+    </form>
+
+
+    <script>
+        $(function ()
+        {//create to all input tooltips with track, show, and hide effect
+            $(document).tooltip({
+                track: true,
+                show: { duration: 400, delay: 100, effect: "slideDown" },
+                hide: { duration: 400, delay: 100, effect: "slideUp" }
+            });
+            //create only for input "customer name"
+            //changing the title in the customer name to the content as bellow
+            $("#CName").tooltip({
+                content: "Put your <b>Name</b> in this input!",
+                show: { duration: 400, delay: 100, effect: "slideDown" },
+                hide: { duration: 400, delay: 100, effect: "slideUp" },
+                track: true
+            });
+        });
+    </script>
+</body>
+</html>

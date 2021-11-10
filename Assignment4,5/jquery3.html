@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>JQuery3</title>
+    <link href="css/Style.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="contents">
+        <a href="jquery1.html">Jquery 1</a>&emsp;
+        <a href="jquery2.html">Jquery 2</a>&emsp;
+        <a href="jquery3.html">Jquery 3</a>
+    </div>
+    <div id="outputs"></div>
+    <script>
+        $(document).ready(function ()
+        {
+            $.ajax({
+                type: "GET",  // using GET (much "safer-method") because we want read/ retrive data
+                url: "appstore.xml",
+                datatype: "xml",
+                // to handle success
+                success: function (result)
+                {// result will hold the 'data' from XML document
+                    var output = "";
+                    //create main table
+                    output += "<table border ='2' style='margin-left:auto; margin-right:auto;'>";
+                    output += "<tr style='background-color:silver'><th>GUID</th><th>Version</th><th>Name</th><th>Apps Icon</th><th>Contact Email</th><th>Category</th></tr>";
+                    $(result).find('application').each(function ()
+                    {
+                        //get the attribute value from the xml file
+                        var $application = $(this);
+                        var guid = $application.attr('GUID');
+                        var version = $application.attr('version');
+                        var name = $application.find('name').text();
+                        var icon = $application.find('appIcon').text();
+                        var email = $application.find('contactEmail').text();
+                        var category = $application.find('category').text();
+
+                        //create a tr and td to insert the application xml file value
+                        output += "<tr style='text-align:center;'>";
+                        output += "<td class='GUID'>" + guid + "</td>";
+                        output += "<td class='version'>" + version + "</td>";
+                        output += "<td>" + name + "</td>";
+                        output += '<td><img alt="" src="' + icon + '" />' + "</td>";
+                        output += "<td>" + email + "</td>";
+                        output += "<td>" + category + "</td>";
+                        output += "</tr>";
+                    }); 
+                    
+                    output += "</table>";
+                    //display output of application file
+                    $("#outputs").html(output);
+                },
+                });
+            });
+    </script>
+</body>
+</html>

@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Jquery1</title>
+    <link href="css/Style.css" rel="stylesheet" />
+
+    <style>
+        #SlideUp, #slideText, #slideText2, #slideText3,
+        #SlideDown, #slideText4, #slideText5, #slideText6,
+        #SlideToggle, #slideText7, #slideText8, #slideText9
+        {
+            padding: 7px;
+            background-color: #e5eecc;
+            border: solid 1px #c3c3c3;
+        }
+        #slideText4, #slideText5, #slideText6 
+        {
+            padding:7px;
+            display:none;
+        }
+        
+        .classText
+        {
+            font-weight:bold;
+            color:blue;
+            font-size: 16px;
+        }
+        .toggleText
+        {
+            font-weight:bold;
+            color:red;
+        }
+    </style>
+</head>
+<body class="bodyBkgrud">
+    <div class="contents">
+        <a href="jquery1.html">Jquery 1</a>&emsp;
+        <a href="jquery2.html">Jquery 2</a>&emsp;
+        <a href="jquery3.html">Jquery 3</a>
+    </div>
+
+    <h2 style="text-align:center;">Difference Between Each Flight</h2>
+    <main class="airlineBackgrd">
+        <br />
+
+        <!-- button for FadeIn, FadeOut and FadeToggle -->
+        <!--FadeIn-->
+        <dir class="buttonL">
+            <button class="EachButn" id="FadeIn">Show Flight Info</button>
+            <button class="EachButn" id="FadeOut">Hide Flight Info</button>
+            <button class="EachButn" id="FadeToggle">Show and Hide Flight Info</button>
+        </dir>
+        <div class="Picdirection2">
+            <div id="FadeText1" class="Picdirection">
+                <img src="images/Malaysia_Airline.jpg" width="160" height="150" />
+                <div id="SlideUp"><b>Airasia Airline [Malaysia] &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;[Click Me!]</b></div>
+                <div id="slideText"><p1>Airasia Airplane Food: Nasi Lemak, Chicken Rise, Roti Canai</p1></div>
+                <div id="slideText2"><p2>Airasia Depart Location: China, Japan, Hongkong</p2></div>
+                <div id="slideText3"><p3>Airasia Baggage Limit: 32kg per person</p3></div>
+
+            </div>
+
+            <!--FadeOut-->
+            <div id="FadeText2" class="Picdirection">
+                <img src="images/Taiwan_Airline.jpg" width="160" height="150" />
+                <div id="SlideDown"><b>EVA Air [Taiwan]&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;[Click Me!]</b></div>
+                <div id="slideText4"><p4>EVA Airplane Food: </p4></div>
+                <div id="slideText5"><p5>Malaysia, Hongkong, Japan</p5></div>
+                <div id="slideText6"><p6>EVA Air Baggage Limit: </p6></div>
+            </div>
+
+            <!--FadeToggle-->
+            <div id="FadeText3" class="Picdirection">
+                <img src="images/China_Airline.jpg" width="160" height="150" />
+                <div id="SlideToggle"><b>China Airlines [China]&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;[Click Me!]</b></div>
+                <div id="slideText7"><p7>China Airplane Food: Mutton Curry with Rice, Macaroni Salad</p7></div>
+                <div id="slideText8"><p8>China Airplanes Depart Location: Korean, Malaysia, Japan</p8></div>
+                <div id="slideText9"><p9>China Airplanes Baggage Limit: 23kg per person</p9></div>
+
+            </div>
+        </div>
+
+        <!-- vreate button for classAdd, ClassRemove, classToggle, after and before -->
+        <dir class="buttonL">
+            <button id="classAdd" class="EachButn">Add Class</button>
+            <button id="classRemove" class="EachButn">Remove Class</button>
+            <button id="classToggle" class="EachButn">Toggle Class</button>
+            <button id="After" class="EachButn">After</button>
+            <button id="Before" class="EachButn">Before</button>
+        </dir>
+        
+    </main>
+    <script>
+        $(document).ready(function ()
+        {
+            //jQuery Fade effect – fadeIn, fadeOut and fadeToggle
+            $("#FadeIn").click(function ()
+            {
+                $("#FadeText1").fadeIn();
+                $("#FadeText2").fadeIn('slow');
+                $("#FadeText3").fadeIn(2000);
+            });
+            $("#FadeOut").click(function ()
+            {
+                $("#FadeText1").fadeOut();
+                $("#FadeText2").fadeOut('slow');
+                $("#FadeText3").fadeOut(2000);
+            });
+
+            $("#FadeToggle").click(function ()
+            {
+                $("#FadeText1").fadeToggle();
+                $("#FadeText2").fadeToggle('slow');
+                $("#FadeText3").fadeToggle(2000);
+            });
+
+            $("#SlideUp").click(function ()
+            {
+                $('#slideText').slideUp();
+                $('#slideText2').slideUp();
+                $('#slideText3').slideUp();
+            });
+
+            //jQuery Slide effect – slideUp, slideDown and slideToggle
+            $("#SlideDown").click(function ()
+            {
+                $('#slideText4').slideDown();
+                $('#slideText5').slideDown();
+                $('#slideText6').slideDown();
+            });
+
+            $("#SlideToggle").click(function ()
+            {
+                $('#slideText7').slideToggle();
+                $('#slideText8').slideToggle();
+                $('#slideText9').slideToggle();
+            });
+
+            //jQuery Manipulation – after and before
+            //create jquery 'after()' function to input the text 
+            $("#After").click(function ()
+            {
+                $('p4').after(" <b>Mutton Curry with Rice, Macaroni Salad</b>");
+                $('p6').after(" <b>23kg per person</b>");
+            });
+
+            ////create jquery 'before()' function to input the text 
+            $("#Before").click(function ()
+            {
+                $('p5').before('<b>EVA Air Depart Location: </b>');
+            });
+
+            //jQuery CSS Classes – addClass, removeClass and toggleClass
+            //addClass
+            $("#classAdd").click(function ()
+            {
+                $("p2,p8").addClass("classText");
+            });
+
+            //removeClass
+            $("#classRemove").click(function ()
+            {
+                $("p2,p4,p6,p8").removeClass("classText");
+            });
+
+            //toggleClass
+            $("#classToggle").click(function ()
+            {
+                $("p7,p9").toggleClass("toggleText");
+            });
+           
+
+
+        });
+    </script>
+</body>
+
+</html>

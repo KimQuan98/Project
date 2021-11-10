@@ -1,0 +1,264 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>jquery 4</title>
+    <link href="css/Style.css" rel="stylesheet" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+    <style>
+        .drag {
+            background-image: url('Images/road.jpg');
+            height: 500px;
+        }
+
+        .carPic {
+            position: absolute;
+            top: 330px;
+        }
+
+        .dropp {
+            border: 4px solid black;
+            font-size: 25px;
+            font-weight: bold;
+            background-color: lightsteelblue;
+            width: 400px;
+            padding: 50px;
+            display: inline-table;
+            text-align: center;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        #container {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: bisque;
+            height: 250px;
+            width: 700px;
+        }
+
+        #resize {
+            border: 1px solid grey;
+        }
+
+        .ui-widget-header {
+            text-align: center;
+        }
+
+        #selectText {
+            font-size: 18px;
+        }
+
+        #select .ui-selecting {
+            background-image: linear-gradient(to bottom right, #66ff66,#66d9ff);
+        }
+
+        #select .ui-selected {
+            background-image: linear-gradient(to bottom right, #b3ff66,#66ffd9);
+            color: blue;
+        }
+
+        #select {
+            list-style-type: none;
+            margin: 0;
+            width: 60%;
+        }
+
+            #select li {
+                margin: 3px;
+                padding: 20px;
+                font-size: 20px;
+                height: 18px;
+            }
+
+        #sort {
+            list-style-type: none;
+        }
+
+            #sort li {
+                border: solid 1px #00ffff;
+                float: left;
+                width: 150px;
+                height: 150px;
+                font-size: 15px;
+                text-align: center;
+                cursor: pointer;
+            }
+    </style>
+</head>
+<body>
+    <nav class="contents">
+        <a href="jquery4.html">Jquery 4</a>&emsp;
+        <a href="jquery5.html">Jquery 5</a>
+    </nav>
+
+    <h1 style="text-align:center;">Moving Car</h1>
+    <div class="drag">
+        <img src="Images/redcar.png" id="dragga" class="carPic" height="230" width="320" />
+    </div>
+    <br /><br />
+    <div class="dropp" style="width:300px;">
+        Carnivore and Herbivore
+        <ul id="animals">
+            <li data-value="herbivore">
+                <img src="Images/cow.jpg" width="150" height="150" />
+            </li>
+            <li data-value="carnivore">
+                <img src="Images/lion.jpg" width="150" height="150" />
+            </li>
+            <li data-value="carnivore">
+                <img src="Images/tiger.jpg" width="150" height="150" />
+            </li>
+            <li data-value="herbivore">
+                <img src="Images/elephant.jpg" width="150" height="150" />
+            </li>
+            <li data-value="herbivore">
+                <img src="Images/sheep.jpg" width="150" height="150" />
+            </li>
+            <li data-value="carnivore">
+                <img src="Images/shark.jpg" width="150" height="150" />
+            </li>
+        </ul>
+    </div>
+
+    <div class="dropp" id="divCarni">
+        Carnivore
+        <ul id="carni">
+        </ul>
+    </div>
+
+    <div class="dropp" id="divHerbi">
+        Herbivore
+        <ul id="herbi">
+        </ul>
+    </div>
+    <br />
+
+    <div id="container" class="ui-widget-content">
+        <h1 class="ui-widget-header">History of Air Asia</h1>
+        <div id="resize">
+            Air Asia was established in 1993 and commenced its operations on 18th November 1996.
+            This airline was originally founded by a government owned conglomerate DRB-Hicom.
+            However, on 2nd December 2001, the heaviliy indebted airline was purchased by former
+            Time Warner executive Tony Fernandes’s company Tune Air Sdn Bhd for the token sum of
+            one ringgit. Fernandes proceeded to engineer a remarkable turnaround, turning a profit
+            in 2002 and launching new routes from its hub in KLIA at breakneck speed which undercutting
+            former monopoly operator Malaysia Airlines with promotional fares as low as one ringgit.
+        </div>
+    </div>
+    <br />
+    <h1>Airline Malaysia Flight Location and Price</h1>
+    <p id="selectText">
+        <span>Airline Malaysia Flight Result:</span>
+        <span id="outputSelect">
+            <img src="Images/tenor.gif" height="50" width="50" />
+        </span>
+    </p>
+    <ol id="select">
+        <li class="ui-widget-content">KLIA to China <span style="display:none;"> &#10547;RM4000&emsp;</span></li>
+        <li class="ui-widget-content">Penang to Hongkong <span style="display:none;"> &#10547;RM3000&emsp;</span></li>
+        <li class="ui-widget-content">Langkawi to Korean <span style="display:none;"> &#10547;RM5000&emsp;</span></li>
+        <li class="ui-widget-content">KLIA to Japan <span style="display:none;"> &#10547;RM6000&emsp;</span></li>
+        <li class="ui-widget-content">Johor to Taiwan <span style="display:none;"> &#10547;RM2000&emsp;</span></li>
+    </ol>
+    <br />
+    <div style="width:520px;">
+        <h1>Play Totoro Puzzle Game</h1>
+        <ul id="sort" class="ui-sortable">
+            <li id="totoro_8" class="ui-state-default">
+                <img title="8" width="150" height="150" src="totoroImg/totoro1.jpg">
+            </li>
+            <li id="totoro_7" class="ui-state-default">
+                <img title="7" width="150" height="150" src="totoroImg/totoro7.jpg">
+            </li>
+            <li id="totoro_1" class="ui-state-default">
+                <img title="1" width="150" height="150" src="totoroImg/totoro1.jpg">
+            </li>
+            <li id="totoro_5" class="ui-state-default">
+                <img title="5" width="150" height="150" src="totoroImg/totoro5.jpg">
+            </li>
+            <li id="totoro_2" class="ui-state-default">
+                <img title="2" width="150" height="150" src="totoroImg/totoro2.jpg">
+            </li>
+            <li id="totoro_9" class="ui-state-default">
+                <img title="9" width="150" height="150" src="totoroImg/totoro9.jpg">
+            </li>
+            <li id="totoro_3" class="ui-state-default">
+                <img title="3" width="150" height="150" src="totoroImg/totoro3.jpg">
+            </li>
+            <li id="totoro_6" class="ui-state-default">
+                <img title="6" width="150" height="150" src="totoroImg/totoro6.jpg">
+            </li>
+            <li id="totoro_4" class="ui-state-default">
+                <img title="4" width="150" height="150" src="totoroImg/totoro4.jpg">
+            </li>
+        </ul>
+    </div><br />
+    <button class="EachButn" onclick="history.go(0)">Reset</button>
+    <br /><br />
+    <script>
+        $(function () {
+            //draggable
+            $("#dragga").draggable({ axis: "x", containment: "parent" });
+
+            //droppable
+            $('#animals li').draggable({
+                helper: 'clone',
+                revert: 'invalid'
+            });
+            $('#divCarni').droppable({
+                accept: 'li[data-value="carnivore"]',
+                drop: function (event, ui) {
+                    $('#carni').append(ui.draggable);
+                }
+            });
+            $('#divHerbi').droppable({
+                accept: 'li[data-value="herbivore"]',
+                drop: function (event, ui) {
+                    $('#herbi').append(ui.draggable);
+                }
+            });
+
+            //resizable
+            $("#resize").resizable
+                ({
+                    containment: "#container"
+                });
+
+            //Selectable
+            $("#select").selectable({
+                stop: function () {
+
+                    var answer = $("#outputSelect").empty();
+
+                    $(".ui-selected", this).each(function () {
+                        answer.append($(this).text());
+                    });
+                }
+            });
+
+            //Sortable
+            $("#sort").sortable({
+                update: function () {
+                    var puzzle = $(this).sortable("serialize");
+                    puzzle = puzzle.split("&totoro[]=") + "";
+                    puzzle = puzzle.split("totoro[]=") + "";
+                    if (puzzle == ',1,2,3,4,5,6,7,8,9') {
+                        alert('Congragulation! You Win the puzzle');
+                    }
+                }
+            });
+        });
+
+
+    </script>
+
+</body>
+</html>
