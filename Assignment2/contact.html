@@ -1,0 +1,176 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="web Assignment1" />
+    <meta name="keywords" content="HTML, CSS, JavaScript" />
+    <meta name="author" content="Lam_Kim_Quan" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Airline</title>
+
+    <link href="css/Style.css" rel="stylesheet" />
+
+    <style>
+        /*Implement the figure & figcaption of the image & font style*/
+        figure {
+            border: 1px #cccccc solid;
+            padding: 5px;
+            margin: auto;
+        }
+
+        figcaption {
+            background-color: #b3b3b3;
+            color: black;
+            font-family: 'Eras ITC';
+            padding: 2px;
+            text-align: center;
+        }
+
+        table, th, td {
+            border: 2px solid black;
+        }
+
+        /*Create title media [Facebook,Instagram,Twitter]*/
+        .mediaTitle{
+            position:relative;
+            left:30px;
+            font-style:italic;
+            font-size:20px;
+        }
+        .mediaTitle:hover
+        {
+            color:red;
+        }
+        /*putting the airaisa logo behind of table screen using z-index css*/
+        .logo {
+            position: absolute;
+            left: 87px;
+            top: 153.5px;
+            z-index: -1;
+        }
+
+        .Arrow{
+            position:static;
+            left:auto;
+        }
+
+    </style>
+
+</head>
+<body>
+    <nav class="Content">
+        <a href="about.html">About</a>&emsp;
+        <a href="contact.html">Contact</a>&emsp;
+        <a href="index.html">Index</a>&emsp;
+        <a href="booking.html">Booking</a>&emsp;
+        <a href="coordinates.html">Coordinates</a>
+    </nav><br />
+
+    <section class="contactBckgd">
+        <br />
+        <table align=center>
+            <tr>
+                <th colspan="4" style="font-size:30px;">Airline Company Contact</th>
+            </tr>
+            <tr>
+                <!-- Creating Contact method for every social media [Facebook,Twitter,WhatsApp, phone call] -->
+                <td rowspan="2">
+                    <img src="images/airasia_logo.jpg" class="logo" width="335" height="364" />
+                    <h2>Contact Channels</h2>
+                    <img src="images/facebook.png" height="50" width="50" />
+                    <a href="https://www.facebook.com/messages/t/AirAsiaSupport"><b class="mediaTitle">Contact us via Facebook</b></a><hr />
+                    <img src="images/twitter.png" height="50" width="50" />
+                    <a href="https://twitter.com/AirAsiaSupport"><b class="mediaTitle">Contact us via Twitter</b></a><hr />
+                    <img src="images/whatsapp.png" height="50" width="50" />
+                    <a href="https://api.whatsapp.com/send?phone=601135165078"><b class="mediaTitle">Contact us via WhatsApp</b></a><hr />
+                    <img src="images/phone_Icon.png" height="50" width="50" />
+                    <a href="https://support.airasia.com/s/call-center?language=en_GB"><b class="mediaTitle">Call Centres</b></a><hr />
+                </td>
+
+                <!-- Creating title video -->
+                <td height="70">
+                    <h4>Tony Fernandes on how he built Asia’s largest low-cost carrier, AirAsia [Watch Video Below]</h4>
+                    <img src="images/down_Icon.gif" class="Arrow" width="40" height="40" />
+                    <img src="images/down_Icon.gif" class="Arrow" width="40" height="40" />
+                    <img src="images/down_Icon.gif" class="Arrow" width="40" height="40" />
+                    <img src="images/down_Icon.gif" class="Arrow" width="40" height="40" />
+                    <img src="images/down_Icon.gif" class="Arrow" width="40" height="40" />
+                    <img src="images/down_Icon.gif" class="Arrow" width="40" height="40" />
+                    <img src="images/down_Icon.gif" class="Arrow" width="40" height="40" />
+
+                </td>
+
+                <!-- External link for social media -->
+                <td rowspan="2" colspan="2" class="directionPic2">
+                    <h1>Join Us</h1>
+                    <div class="directionPic">
+                        <img src="images/facebook.png" title="Facebook" width="130" height="130" />
+                        <a href="https://www.facebook.com/AirAsia/"><br /><p class="mediaTitle">Facebook</p></a>
+                    </div>
+
+                    <div class="directionPic">
+                        <img src="images/Instagram.png" title="Instagram" width="130" height="130" />
+                        <a href="https://www.instagram.com/airasia/"><br/><p class="mediaTitle">Instagram</p></a>
+                    </div>
+                   
+                    <div class="directionPic">
+                        <img src="images/twitter.png" title="Twitter" width="130" height="130"/>
+                        <a href="https://twitter.com/AirAsia"><br /><p class="mediaTitle">Twitter</p></a>
+                    </div>
+
+                </td>
+            </tr>
+
+            <!--Displaying video-->
+            <tr>
+                <td>
+                    <video controls="controls" height="200" width="330">
+                        <source src="video/Tony%20Fernandes.mp4" type="video/mp4" />
+                    </video>
+                </td>
+            </tr>
+           
+            <!--title for picture below-->
+            <tr>
+                <th colspan="4" style="font-family:'Bodoni MT'; font-size:20px;">Airasia Company Picture </th>
+            </tr>
+
+            <!-- Displaying the picture with figure and caption-->
+            <tr>
+
+                <td style="width: 25%;">
+                    <figure>
+                        <img src="images/airasia_building.jpg" width="250" height="150" style="position:relative; left:23px;" />
+                        <figcaption>Figure.1.1 - Airasia Company Building</figcaption>
+                    </figure>
+                </td>
+
+                <td style="width: 25%;">
+                    <figure>
+                        <img src="images/airplane_seat.jpg" width="250" height="150" style="position:relative; left:23px;" />
+                        <figcaption>Figure.1.2 - Seat Airasia</figcaption>
+                    </figure>
+
+                </td>
+
+                <td style="width: 25%;">
+                    <figure>
+                        <img src="images/AirAsia_airplane.jpg" width="250" height="150" style="position:relative; left:8%;" />
+                        <figcaption>Figure.1.3 - Airasia Airplane</figcaption>
+                    </figure>
+                </td>
+
+                <td style="width: 25%;">
+                    <figure>
+                        <img src="images/history.jpg" width="250" height="150" style="position:relative; left:8%;" />
+                        <figcaption>Figure.1.4 - Airasia History</figcaption>
+                    </figure>
+                </td>
+            </tr>
+        </table>
+    </section>
+    <footer>
+        &copy; Lam_Kim_Quan 2020 Assignment 1
+    </footer>
+</body>
+</html>

@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="web Assignment1" />
+    <meta name="keywords" content="HTML, CSS, JavaScript" />
+    <meta name="author" content="Lam_Kim_Quan" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index Airline</title>
+
+    <!-- take out stylesheet from style.css file -->
+    <link href="css/Style.css" rel="stylesheet" />
+    <!-- embedded css -->
+    <style>
+        /*arange color in the ordered list using CSS pseudo-selector*/
+        ol > li:first-child {
+            color: blue;
+        }
+
+        ol > li:last-child {
+            color: green;
+        }
+
+        ol > li:nth-child(2) {
+            color: mediumpurple;
+        }
+        /*Creating border style type of text and textarea */
+        input[type=text], textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        /*adjust submit button position and stype type*/
+        input[type=submit] {
+            background-color: #4CAF50;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            position: absolute;
+            top: 1000px;
+            left: 48%;
+        }
+        /*adjust reset button position and stype type*/
+        input[type=reset] {
+            background-color: #4CAF50;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            position: absolute;
+            top: 1000px;
+            left: 60%;
+        }
+
+        input[type=submit]:hover {
+            background-color: orangered;
+        }
+
+        input[type=reset]:hover {
+            background-color: orangered;
+        }
+
+        .textFocus:focus {
+            background-color: aqua;
+        }
+
+        textarea:enabled {
+            background-color: greenyellow;
+        }
+
+        .InputBkgd {
+            background-color: #f2f2f2;
+            width: 60%;
+            height: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <nav class="Content">
+        <a href="about.html">About</a>&emsp;
+        <a href="contact.html">Contact</a>&emsp;
+        <a href="index.html">Index</a>&emsp;
+        <a href="booking.html">Booking</a>&emsp;
+        <a href="coordinates.html">Coordinates</a>
+    </nav><br />
+    <main class="indexBckgd">
+        <br /><br />
+        <table align="center" border="1" Style="width:90%; height:50%;">
+            <tr>
+                <th colspan="2"><h2>Index of Local Airline Company</h2></th>
+            </tr>
+
+            <tr>
+                <td rowspan="2" width="600">
+                    <h3>Story Malaysia Airline Company</h3>
+                    <p>
+                        Malaysia Airlines is Malaysia’s flagship airline and a member of the oneworld airline alliance.
+                        Malaysia Airlines Berhad (MAB) commenced operations as the national carrier on 1 September
+                        2015 when Malaysian Airline System (MAS) was dissolved from Bursa Malaysia in 2014 and
+                        subsequently ceased operations on August 31, 2015.
+                    </p>
+                </td>
+                <td>
+                    <h3>Benefit Joining Malaysia Airline Company </h3>
+                    <p>
+                        <ol>
+                            <li>Get free return tickets per year for you to embark in your fantastic long awaited holiday.</li>
+                            <li>Get unlimited concessional travel with a 90% discount on your airfare.</li>
+                            <li>Meet alot new friends.</li>
+                            <li>Strong corporate culture that fosters a positive and fun work place.</li>
+                        </ol>
+                    </p>
+                </td>
+
+            </tr>
+            <tr>
+                <td>
+                    <h3>Weaknesses Of Malaysia Airline Company</h3>
+                    <ol>
+                        <li>Dicrease of the aircraft infrastructure.</li>
+                        <li>Does not follow the schedule of flight strictly.</li>
+                        <li>Caused unsatisfied feeling toward the consumer that choice to use the Air Asia service.</li>
+                        <li>Had lose lot number of they own costumer that really care about time punctual</li>
+                    </ol>
+                </td>
+            </tr>
+        </table>
+    </main>
+
+    <!-- Creating input field for CSS pseudo-selector [enable and focus] -->
+    <form action="/action_page.php" class="InputBkgd">
+        <br /><br />
+        <table border="0" style="margin-left:auto; margin-right:auto; height:60px;">
+            <tr>
+                <th><label for="fname">First Name: </label></th>
+                <td>
+                    &emsp;&emsp;<input class="textFocus" type="text" id="fname" name="firstname" placeholder="Enter First Name..." style=" width:400px;">
+                </td>
+            </tr>
+
+            <tr>
+                <th><label for="lname">Last Name: </label></th>
+                <td>
+                    &emsp;&emsp;<input class="textFocus" type="text" id="lname" name="lastname" placeholder="Enter Last Name..." style="width:400px;">
+                </td>
+            </tr>
+            <tr>
+                <th>&emsp;&emsp;Email: </th>
+                <td>
+                    &emsp;&emsp;<input class="textFocus" type="text" id="e_mail" name="email" placeholder="ABC123@gmail.com" style="width:400px;" />
+                </td>
+            </tr>
+            <tr>
+                <th><label for="subject">&emsp;Message: </label></th>
+                <td>
+                    &emsp;&emsp;<textarea id="subject" name="subject" placeholder="Comment..." style="width:400px; height:200px"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" height="50">
+                    <input type="reset" value="Reset" />
+                    <input type="submit" value="Submit" onclick="return false">
+                </td>
+            </tr>
+        </table>
+    </form><br />
+    <footer>
+        &copy; Lam_Kim_Quan 2020 Assignment 1
+    </footer>
+</body>
+</html>

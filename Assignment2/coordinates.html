@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="web Assignment2" />
+    <meta name="keywords" content="HTML, CSS, JavaScript" />
+    <meta name="author" content="Lam_Kim_Quan" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coordinates</title>
+
+    <link href="css/Style2.css" rel="stylesheet" />
+    <style>
+        /*creating a container*/
+        .Container {
+            width: 400px;
+            height: 400px;
+            margin-left: 35%;
+            background-color: #d9d9d9;
+        }
+        /*Modify text "Here"*/
+        .TextHere {
+            position: absolute;
+            font-size: 18px;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="Content">
+        <a href="about.html">About</a>&emsp;
+        <a href="contact.html">Contact</a>&emsp;
+        <a href="index.html">Index</a>&emsp;
+        <a href="booking.html">Booking</a>&emsp;
+        <a href="coordinates.html">Coordinates</a>
+    </nav><br />
+
+    <!--Displaying the function of coordinate and Text "Here"-->
+    <div class="Container" onclick="showCoords(event);showText(event)">
+        <!-- Displaying the value of coordinate -->
+        <span id="ValueX">X Coords: 0</span><br />
+        <span id="ValueY">Y Coords: 0</span>
+        <!-- Displaying the Text 'Here' -->
+        <span class="TextHere" id="shows"></span>
+    </div>
+
+    <script>
+        //display coordinate value using 'event' function
+        function showCoords(event)
+        {
+            var x_Co = event.clientX;
+            var y_Co = event.clientY;
+
+            //display x value
+            document.getElementById("ValueX").innerHTML = "X Coords: " + x_Co;
+            //display y value
+            document.getElementById("ValueY").innerHTML = "Y Coords: " + y_Co;
+        }
+
+        //display Text 'Here'
+        function showText(event)
+        {
+            var Text_x = event.clientX;
+            var Text_y = event.clientY;
+
+            //create the text node 'Here'
+            var Text = document.createTextNode("Here");
+
+            //displaying the text to the span 'shows'
+            var DisplayText = document.getElementById("shows");
+
+            //displying coordinate x and y position
+            DisplayText.style.top = Text_y + "px";
+            DisplayText.style.left = Text_x + "px";
+
+            //remove the first child text "Here" when founded
+            if (DisplayText.hasChildNodes())
+                DisplayText.removeChild(DisplayText.firstChild);
+
+            DisplayText.appendChild(Text);
+        }
+    </script>
+    <br />
+    <footer>
+        &copy; Lam_Kim_Quan 2020 Assignment 2
+    </footer>
+</body>
+</html>

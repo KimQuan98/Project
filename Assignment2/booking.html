@@ -1,0 +1,618 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="web Assignment2" />
+    <meta name="keywords" content="HTML, CSS, JavaScript" />
+    <meta name="author" content="Lam_Kim_Quan" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Booking</title>
+
+    <link href="css/Style2.css" rel="stylesheet" />
+    <style>
+
+        .BookingBgkd {
+            width: 80%;
+            height: 550px;
+            margin-left: auto;
+            margin-right: auto;
+            background-image: linear-gradient(white,#a6a6a6);
+        }
+        /*Create style submit button*/
+        .submitButton {
+            background-color: Highlight;
+            border-radius: 11px;
+            color: #fff;
+            font-family: Georgia;
+            text-shadow: 2px 3px rgba(0,0,0,0.6);
+            width: 110px;
+            height: 30px;
+            font-size: 18px;
+        }
+
+            .submitButton:hover {
+                background-color: red;
+            }
+
+            .submitButton:active {
+                background-color: forestgreen;
+            }
+
+        /*create style reset button*/
+        .resetButton {
+            background-color: Highlight;
+            border-radius: 11px;
+            color: #fff;
+            font-family: Georgia;
+            text-shadow: 2px 3px rgba(0,0,0,0.6);
+            width: 100px;
+            height: 30px;
+            font-size: 18px;
+        }
+
+            .resetButton:hover {
+                background-color: red;
+            }
+
+            .resetButton:active {
+                background-color: forestgreen;
+            }
+    </style>
+</head>
+<body>
+    <nav class="Content">
+        <a href="about.html">About</a>&emsp;
+        <a href="contact.html">Contact</a>&emsp;
+        <a href="index.html">Index</a>&emsp;
+        <a href="booking.html">Booking</a>&emsp;
+        <a href="coordinates.html">Coordinates</a>
+    </nav><br />
+
+    <form class="BookingBgkd" onsubmit="return booking()">
+        <table border="0">
+            <!-- Title of flight booking -->
+            <tr>
+                <th colspan="2"><h2>Flight Booking</h2></th>
+            </tr>
+            <!-- create customer input name -->
+            <tr>
+                <td>Customer Name: </td>
+                <td>
+                    <input id="CName" type="text" placeholder="Name" /><br />
+                    <span id="NameError" style="color:red;"></span>
+                </td>
+            </tr>
+
+            <!-- create customer input Phone number -->
+            <tr>
+                <td>Customer Phone Number: </td>
+                <td>
+                    <input id="Numbers" type="tel" placeholder="Phone Number" /><br />
+                    <span id="PhoneError" style="color:red;"></span>
+                </td>
+
+            </tr>
+
+            <!-- create customer input Email Address -->
+            <tr>
+                <td>Customer Email Address: </td>
+                <td>
+                    <input id="E_mail" type="email" title="Email" placeholder="Email" /><br />
+                    <span id="EmailError" style="color:red;"></span>
+                </td>
+            </tr>
+
+            <!-- create radio button for customer which Identification Number they want to use -->
+            <tr>
+                <td>Customer Identification Number: </td>
+                <td>
+                    <div id="rates">
+                        <input type="radio" id="r1" name="rate" value="Passport" onclick="indetificationBox()"> Passport<br />
+                        <input type="text" id="port" name="port" style="display:none;" />
+                        <span id="PassportError" style="color:red;"></span><br />
+                        <input type="radio" id="r2" name="rate" value="IC" onclick="indetificationBox()"> Identity Card (IC)<br />
+                        <input type="text" id="card" name="card" style="display:none;" /><br />
+                        <span id="IC_Error" style="color:red;"></span>
+                        <span id="RadioError" style="color:red;"></span>
+                    </div>
+                </td>
+            </tr>
+
+            <!-- create few option of flight origin malaysia to let user choose -->
+            <tr>
+                <td>Flight Origin: </td>
+                <td>
+                    <select id="origin" name="origin">
+                        <option value="#">- None -</option>
+                        <option value="Kuala Lumpur">Kuala Lumpur</option>
+                        <option value="Penang">Penang</option>
+                        <option value="Melaka">Melaka</option>
+                    </select>
+                    <span id="OriginError" style="color:red;"></span>
+                </td>
+            </tr>
+
+            <!-- create few option of flight destination which destination they want to go -->
+            <tr>
+                <td>Flight Destination: </td>
+                <td>
+                    <select id="destination" name="destination">
+                        <option value="#">- None -</option>
+                        <option value="China">China</option>
+                        <option value="Japan">Japan</option>
+                        <option value="Korean">Korean</option>
+                    </select>
+                    <span id="DestinationError" style="color:red;"></span>
+                </td>
+            </tr>
+
+            <!-- create flight destination depart date  -->
+            <tr>
+                <td>Depart Date: </td>
+                <td>
+                    <input type="date" id="Date" />
+                    <span id="DateError" style="color:red;"></span>
+                </td>
+            </tr>
+
+            <!--create a few checkbox for Adult,children and infant to let user choose and insert the quantity of ticket -->
+            <tr>
+                <td>Quantity of Ticket:</td>
+                <td>
+                    <input type="checkbox" id="TxtAdult" value="Adult" onclick="QuantityBox()" />Adult<br />
+                    <input type="number" id="adt" name="adt" style="display:none;" />
+                    <span id="AdultNoError" style="color:red;"></span><br />
+                    <input type="checkbox" id="TxtChild" value="Children" onclick="QuantityBox()" />Children<br />
+                    <input type="number" id="child" name="adt" style="display:none;" />
+                    <span id="ChildNoError" style="color:red;"></span><br />
+                    <input type="checkbox" id="TxtInfant" value="Infant" onclick="QuantityBox()" />Infant<br />
+                    <input type="number" id="fant" name="adt" style="display:none;" />
+                    <span id="InfantNoError" style="color:red;"></span><br />
+                    <span id="CheckError" style="color:red;"></span>
+                </td>
+            </tr>
+
+            <!--create reset and submit button-->
+            <tr>
+                <td colspan="2">
+                    <input type="reset" class="resetButton" value="Reset" />
+                    <input type="submit" class="submitButton" value="Book Now" />
+                </td>
+            </tr>
+        </table>
+
+        <!--displaying all the booking flight result-->
+        <dir class="fontDisplay" style="position: absolute; left: 860px; top: 100px;">
+            <div style="font-size: 21px; font-family: fantasy; text-decoration: underline;">Booking Flight Details: </div><br>
+            <span id="result"></span><br />
+            <span id="Pport"></span>
+            <span id="IC"></span>
+            <span id="count_adult"></span>
+            <span id="count_child"></span>
+            <span id="count_infant"></span>
+            <span id="count_overall"></span>
+
+
+        </dir>
+    </form>
+
+    <script type="text/javascript">
+
+        //creating the checkbox when the user check which people are selected and display the input text box
+        function QuantityBox() {
+            var checkAdult = document.getElementById("TxtAdult").checked;
+            var checkChild = document.getElementById("TxtChild").checked;
+            var checkInfant = document.getElementById("TxtInfant").checked;
+            var AdultNumber = document.getElementById("adt");
+            var ChildNumber = document.getElementById("child");
+            var InfantNumber = document.getElementById("fant");
+
+
+            if (checkAdult == true) {
+                AdultNumber.style.display = "";
+            } else {
+                AdultNumber.style.display = "none";
+            }
+            if (checkChild == true) {
+                ChildNumber.style.display = "";
+            } else {
+                ChildNumber.style.display = "none";
+            }
+            if (checkInfant == true) {
+                InfantNumber.style.display = "";
+            } else {
+                InfantNumber.style.display = "none";
+            }
+
+        }
+
+        function indetificationBox() {
+            var checkPassport = document.getElementById("r1").checked;
+            var portTxt = document.getElementById("port");
+            var checkIC = document.getElementById("r2").checked;
+            var IC_Txt = document.getElementById("card");
+
+            if (checkPassport == true) {
+                portTxt.style.display = "";
+            } else {
+                portTxt.style.display = "none";
+            }
+            if (checkIC == true) {
+                IC_Txt.style.display = "";
+            } else {
+                IC_Txt.style.display = "none";
+            }
+        }
+
+        //Validation for flight booking
+        function booking()
+        {
+            //validation of customer name, phone number, and email
+            var CNme = document.getElementById("CName").value;
+            var phone = document.getElementById("Numbers").value;
+            var CE_mail = document.getElementById("E_mail").value;
+
+            //validation of radio button for idenfitication number
+            var checkPport = document.getElementById("r1").checked;
+            var portTxt = document.getElementById("port").value;
+            var checkIC = document.getElementById("r2").checked;
+            var IC_Txt = document.getElementById("card").value;
+
+            //displaying Identification option and passport or ic number
+            var Identification;
+            var Port_IC;
+
+            //validation of origin and destination
+            var Orig_Select = document.getElementById('origin');
+            var Orig_value = Orig_Select[Orig_Select.selectedIndex].value;
+            var Dest_Select = document.getElementById('destination');
+            var Dest_value = Dest_Select[Dest_Select.selectedIndex].value;
+
+            // validation of checkbox selection
+            var checkAdult = document.getElementById("TxtAdult").checked;
+            var AdultNumber = Number(document.getElementById("adt").value);
+            var checkChild = document.getElementById("TxtChild").checked;
+            var ChildNumber = Number(document.getElementById("child").value);
+            var checkInfant = document.getElementById("TxtInfant").checked;
+            var InfantNumber = Number(document.getElementById("fant").value);
+
+            document.getElementById("NameError").innerHTML = "";
+            document.getElementById("PhoneError").innerHTML = "";
+            document.getElementById("EmailError").innerHTML = "";
+            document.getElementById("RadioError").innerHTML = "";
+            document.getElementById("PassportError").innerHTML = "";
+            document.getElementById("IC_Error").innerHTML = "";
+            document.getElementById("OriginError").innerHTML = "";
+            document.getElementById("DestinationError").innerHTML = "";
+            document.getElementById("DateError").innerHTML = "";
+            document.getElementById("CheckError").innerHTML = "";
+            document.getElementById("AdultNoError").innerHTML = "";
+            document.getElementById("ChildNoError").innerHTML = "";
+            document.getElementById("InfantNoError").innerHTML = "";
+
+            //Current date
+            var current = new Date().toISOString().slice(0, 10);
+
+            //Depart date
+            var C_Choose = document.getElementById("Date").value;
+
+            //customer name validation
+            if (CNme == null || CNme == "" || /^(([A-Za-z]{2,})+\s([A-Za-z]{2,}))|([A-Za-z]{2,})$/.test(CNme) == false) {
+                document.getElementById("NameError").innerHTML = " Invalid Name! Make sure it is more than TWO Characters";
+                return false;
+            }
+
+            //customer phone number validation
+            if (phone == null || phone == "" || /^([0-9]{5,})$/.test(phone) == false) {
+                document.getElementById("PhoneError").innerHTML = " Invalid Phone Number! Only Number and more than 5 digit";
+                return false;
+            }
+
+            //customer email validation
+            if (CE_mail == null || CE_mail == "" || /^([A-Za-z]{2,})+([0-9]{2,})+@gmail.com$/.test(CE_mail) == false) {
+
+                document.getElementById("EmailError").innerHTML = " Invalid Email! The Formet must be Abc123@gmail.com";
+                return false;
+            }
+
+            //customer identification number validation
+            if (checkPport == false && checkIC == false)
+            {
+                document.getElementById("RadioError").innerHTML = " Please Choose your Idenfication Method";
+                return false;
+            }
+
+            //displaying identification selection
+            if (checkPport == true)
+            {
+                Identification = "Passport";
+            } else if (checkIC == true)
+            {
+                Identification = "Identity Card (IC)";
+            }
+
+            //validation of radio identification number for passport
+            if ((checkPport == true) && (portTxt == null || portTxt == "" || /^(([A-Za-z]{1})+[0-9]{8})$/.test(portTxt) == false))
+            {
+                document.getElementById("PassportError").innerHTML = "Wrong Passport! Please make sure your Passport is A12345678";
+                return false;
+            }
+
+            //validation of radio identification number for IC
+            if ((checkIC == true) && (IC_Txt == null || IC_Txt == "" ||  /^(([0-9]{6})+-+([0-9]{2})+-+([0-9]{4}))$/.test(IC_Txt) == false))
+            {
+                document.getElementById("IC_Error").innerHTML = "Wrong IC Number! Please make sure your IC is xxxxxx-xx-xxxx";
+                return false;
+            }
+
+            //displaying port or ic number
+            if (checkPport == true)
+            {
+                Port_IC = "Passport Numeber: " + portTxt;
+            } else if (checkIC == true)
+            {
+                Port_IC ="IC Number: " + IC_Txt;
+            }
+
+            //validation of origin and destination
+            if (Orig_Select.value == '#') {
+                document.getElementById("OriginError").innerHTML = "Please Choose your flight Origin!";
+                return false;
+            }
+
+            if (Dest_Select.value == '#') {
+                document.getElementById("DestinationError").innerHTML = "Please Choose your flight Destination!";
+                return false;
+            }
+
+            //display the flight origin to flight destination price
+            var price;
+
+            if (Orig_Select.value == "Kuala Lumpur" && Dest_Select.value == "China") {
+                price = "RM 500";
+            }
+            if (Orig_Select.value == "Kuala Lumpur" && Dest_Select.value == "Japan") {
+                price = "RM 1000";
+            }
+            if (Orig_Select.value == "Kuala Lumpur" && Dest_Select.value == "Korean") {
+                price = "RM 1500";
+            }
+            if (Orig_Select.value == "Penang" && Dest_Select.value == "China") {
+                price = "RM 2500";
+            }
+            if (Orig_Select.value == "Penang" && Dest_Select.value == "Japan") {
+                price = "RM 3000";
+            }
+            if (Orig_Select.value == "Penang" && Dest_Select.value == "Korean") {
+                price = "RM3500";
+            }
+            if (Orig_Select.value == "Melaka" && Dest_Select.value == "China") {
+                price = "RM 5000";
+            }
+            if (Orig_Select.value == "Melaka" && Dest_Select.value == "Japan") {
+                price = "RM 4500";
+            }
+            if (Orig_Select.value == "Melaka" && Dest_Select.value == "Korean") {
+                price = "RM 4000";
+            }
+
+            //depart date validation
+            if (!Date.parse(C_Choose)) {
+                document.getElementById("DateError").innerHTML = "Please Choose your depart date";
+                return false;
+            }
+
+            //checkbox validation
+            if (checkAdult == false && checkChild == false && checkInfant == false)
+            {
+                document.getElementById("CheckError").innerHTML = "Please Choose at least ONE!";
+                return false;
+            }
+
+            //input adult checkbox validation
+            if ((checkAdult == true) && (AdultNumber == null || AdultNumber == "")) {
+                document.getElementById("AdultNoError").innerHTML = "Please insert Adult number!";
+                return false;
+            }
+
+            //input children checkbox validation
+            if ((checkChild == true) && (ChildNumber == null || ChildNumber == "")) {
+                document.getElementById("ChildNoError").innerHTML = "Please insert Children number!";
+                return false;
+            }
+
+            //input infant checkbox validation
+            if ((checkInfant == true) && (InfantNumber == null || InfantNumber == "")) {
+                document.getElementById("InfantNoError").innerHTML = "Please insert Infant number!";
+                return false;
+            }
+
+            //culculate the number of adult,children and infant
+            //culculate the total price of adult,children and infant
+            var total_Adult = 0;
+            var total_Child = 0;
+            var total_Infant = 0;
+            var total_No_Adult = 0;
+            var total_No_Child = 0;
+            var total_No_Infant = 0;
+
+            //culculate number adult buy the flight ticket and total price
+            if ((checkAdult == true) && (Orig_Select.value == "Kuala Lumpur" && Dest_Select.value == "China")) {
+                total_Adult += AdultNumber;
+                total_No_Adult += (AdultNumber * 500);
+            }
+            if ((checkAdult == true) && (Orig_Select.value == "Kuala Lumpur" && Dest_Select.value == "Japan")) {
+                total_Adult += AdultNumber;
+                total_No_Adult += (AdultNumber * 1000);
+            }
+            if ((checkAdult == true) && (Orig_Select.value == "Kuala Lumpur" && Dest_Select.value == "Korean")) {
+                total_Adult += AdultNumber;
+                total_No_Adult += (AdultNumber * 1500);
+            }
+            if ((checkAdult == true) && (Orig_Select.value == "Penang" && Dest_Select.value == "China")) {
+                total_Adult += AdultNumber;
+                total_No_Adult += (AdultNumber * 2500);
+            }
+            if ((checkAdult == true) && (Orig_Select.value == "Penang" && Dest_Select.value == "Japan")) {
+                total_Adult += AdultNumber;
+                total_No_Adult += (AdultNumber * 3000);
+            }
+            if ((checkAdult == true) && (Orig_Select.value == "Penang" && Dest_Select.value == "Korean")) {
+                total_Adult += AdultNumber;
+                total_No_Adult += (AdultNumber * 3500);
+            }
+            if ((checkAdult == true) && (Orig_Select.value == "Melaka" && Dest_Select.value == "China")) {
+                total_Adult += AdultNumber;
+                total_No_Adult += (AdultNumber * 5000);
+            }
+            if ((checkAdult == true) && (Orig_Select.value == "Melaka" && Dest_Select.value == "Japan")) {
+                total_Adult += AdultNumber;
+                total_No_Adult += (AdultNumber * 4500);
+            }
+            if ((checkAdult == true) && (Orig_Select.value == "Melaka" && Dest_Select.value == "Korean")) {
+                total_Adult += AdultNumber;
+                total_No_Adult += (AdultNumber * 4000);
+            }
+
+            //displaying total number adult and price
+            document.getElementById("count_adult").innerHTML = "</br>" + "Number Adult: " + total_Adult + "</br>" + "Total Cost Ticket (Adult):RM " + total_No_Adult;
+
+            //culculate number children buy the flight ticket and total price
+            if ((checkChild == true) && (Orig_Select.value == "Kuala Lumpur" && Dest_Select.value == "China")) {
+                total_Child += ChildNumber;
+                total_No_Child += ((ChildNumber * 500) * 0.8);
+            }
+            if ((checkChild == true) && (Orig_Select.value == "Kuala Lumpur" && Dest_Select.value == "Japan")) {
+                total_Child += ChildNumber;
+                total_No_Child += ((ChildNumber * 1000) * 0.8);
+            }
+            if ((checkChild == true) && (Orig_Select.value == "Kuala Lumpur" && Dest_Select.value == "Korean")) {
+                total_Child += ChildNumber;
+                total_No_Child += ((ChildNumber * 1500) * 0.8);
+            }
+            if ((checkChild == true) && (Orig_Select.value == "Penang" && Dest_Select.value == "China")) {
+                total_Child += ChildNumber;
+                total_No_Child += ((ChildNumber * 2500) * 0.8);
+            }
+            if ((checkChild == true) && (Orig_Select.value == "Penang" && Dest_Select.value == "Japan")) {
+                total_Child += ChildNumber;
+                total_No_Child += ((ChildNumber * 3000) * 0.8);
+            }
+            if ((checkChild == true) && (Orig_Select.value == "Penang" && Dest_Select.value == "Korean")) {
+                total_Child += ChildNumber;
+                total_No_Child += ((ChildNumber * 3500) * 0.8);
+            }
+            if ((checkChild == true) && (Orig_Select.value == "Melaka" && Dest_Select.value == "China")) {
+                total_Child += ChildNumber;
+                total_No_Child += ((ChildNumber * 5000) * 0.8);
+            }
+            if ((checkChild == true) && (Orig_Select.value == "Melaka" && Dest_Select.value == "Japan")) {
+                total_Child += ChildNumber;
+                total_No_Child += ((ChildNumber * 4500) * 0.8);
+            }
+            if ((checkChild == true) && (Orig_Select.value == "Melaka" && Dest_Select.value == "Korean")) {
+                total_Child += ChildNumber;
+                total_No_Child += ((ChildNumber * 4000) * 0.8);
+            }
+
+            //displaying total number children and price
+            document.getElementById("count_child").innerHTML = "</br>" + "Number Children: " + total_Child + "</br>" + "Total Cost Ticket (Children):RM " + total_No_Child;
+
+            //culculate number infant buy the flight ticket and total price
+            if ((checkInfant == true) && (Orig_Select.value == "Kuala Lumpur" && Dest_Select.value == "China")) {
+                total_Infant += InfantNumber;
+                total_No_Infant += ((InfantNumber * 500) * 0.5);
+            }
+            if ((checkInfant == true) && (Orig_Select.value == "Kuala Lumpur" && Dest_Select.value == "Japan")) {
+                total_Infant += InfantNumber;
+                total_No_Infant += ((InfantNumber * 1000) * 0.5);
+            }
+            if ((checkInfant == true) && (Orig_Select.value == "Kuala Lumpur" && Dest_Select.value == "Korean")) {
+                total_Infant += InfantNumber;
+                total_No_Infant += ((InfantNumber * 1500) * 0.5);
+            }
+            if ((checkInfant == true) && (Orig_Select.value == "Penang" && Dest_Select.value == "China")) {
+                total_Infant += InfantNumber;
+                total_No_Infant += ((InfantNumber * 2500) * 0.5);
+            }
+            if ((checkInfant == true) && (Orig_Select.value == "Penang" && Dest_Select.value == "Japan")) {
+                total_Infant += InfantNumber;
+                total_No_Infant += ((InfantNumber * 3000) * 0.5);
+            }
+            if ((checkInfant == true) && (Orig_Select.value == "Penang" && Dest_Select.value == "Korean")) {
+                total_Infant += InfantNumber;
+                total_No_Infant += ((InfantNumber * 3500) * 0.5);
+            }
+            if ((checkInfant == true) && (Orig_Select.value == "Melaka" && Dest_Select.value == "China")) {
+                total_Infant += InfantNumber;
+                total_No_Infant += ((InfantNumber * 5000) * 0.5);
+            }
+            if ((checkInfant == true) && (Orig_Select.value == "Melaka" && Dest_Select.value == "Japan")) {
+                total_Infant += InfantNumber;
+                total_No_Infant += ((InfantNumber * 4500) * 0.5);
+            }
+            if ((checkInfant == true) && (Orig_Select.value == "Melaka" && Dest_Select.value == "Korean")) {
+                total_Infant += InfantNumber;
+                total_No_Infant += ((InfantNumber * 4000) * 0.5);
+            }
+
+            var overallPrice = 0;
+            overallPrice = total_No_Adult + total_No_Child + total_No_Infant;
+
+            //displaying total number infant and price
+            document.getElementById("count_infant").innerHTML = "</br>" + "Number Infant: " + total_Infant + "</br>" + "Total Cost Ticket (Infant):RM " + total_No_Infant;
+            document.getElementById("count_overall").innerHTML = "</br>Overall Ticket Price:RM " + overallPrice;
+           
+
+            
+
+            //display output flight booking
+            document.getElementById("result").innerHTML = "Customer Name: " + CNme + "</br>" + "Phone Number: " + phone
+                + "</br>" + "Email: " + CE_mail + "</br>" + "Identification Selection: " + Identification + "</br>" + Port_IC + "</br>" + "Origin: " + Orig_value + "</br>" + "Destination: " + Dest_value
+                + "</br>" + "Destination Price: " + price + "</br>" + "Current Date: " + current
+                + "</br>" + "Depart Date: " + C_Choose;
+
+            //if (checkPport.checked == true)
+            //{
+
+            //    while (true)
+            //    {
+            //        checkPport = prompt("Enter Your Passport Number");
+            //        if (checkPport == null || checkPport == "" || /^(([A-Za-z]{1})+[0-9]{8})$/.test(checkPport))
+            //        {
+            //            document.getElementById("Pport_IC").innerHTML = "Identification Selection: " + PportV + " </br> " + "Passport Number: " + checkPport;
+            //            break;
+            //        }
+            //        else
+            //        {
+            //            alert("Wrong Passport! Please make sure your Passport is A12345678");
+            //        }
+            //    } return false;
+
+            //}
+
+            //if (checkIC.checked == true)
+            //{
+            //    while (true)
+            //    {
+            //        checkIC = prompt("Enter Your IC Number");
+            //        if (checkIC == null || checkIC == "" || /^(([0-9]{6})+-+([0-9]{2})+-+([0-9]{4}))$/.test(checkIC))
+            //        {
+            //            document.getElementById("Pport_IC").innerHTML = "Identification Selection: " + ICV + " </br> " + "Passport Number: " + checkIC;
+            //            break;
+            //        }
+            //        else
+            //        {
+            //            alert("Wrong IC Number! Please make sure your IC is xxxxxx-xx-xxxx");
+
+            //        }
+            //    } return false;
+            //}
+            return false;
+        }
+    </script>
+    <footer>
+        &copy; Lam_Kim_Quan 2020 Assignment 2
+    </footer>
+</body>
+</html>
